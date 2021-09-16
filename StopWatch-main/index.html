@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./stopwatch_icon.png" type="image/x-icon" />
+    <title>Stop Watch</title>
+    <!-- Linking CSS -->
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="timer">00:00:00</div>
+      <div class="circles">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+      <div class="buttons">
+        <div class="start-btn" onclick="startTimer()">START</div>
+        <div class="pause-btn" onclick="pauseTimer()">PAUSE</div>
+        <div class="reset-btn" onclick="resetTimer()">RESET</div>
+        <div class="flag-btn" onclick="flagTimer()">FLAG</div>
+      </div>
+      <div class="flagged-timers"></div>
+    </div>
+
+    <!-- Linking JavaScript -->
+    <script src="./index.js"></script>
+  </body>
+</html>

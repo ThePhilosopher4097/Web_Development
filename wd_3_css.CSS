@@ -1,0 +1,140 @@
+
+	#register {
+            background-color: #24a0ed; /* Green */
+            border: 1px solid white;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        #register:hover { 
+            background-color: green;
+        }
+	#clear {
+            background-color: #24a0ed; /* Green */
+            border: 1px solid white;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        #clear:hover { 
+            background-color: red;
+        }
+		
+		
+		
+	
+body {margin: 25px;}
+
+.Logo {
+	display:block;
+	background-color:#333;
+	height: 120px;
+	overflow:hidden;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+img{
+	z-index: 1;
+	background-color:white;
+}
+h1{
+	margin-left: 470px;
+	width:860px;
+	padding:  30px 10px 30px;
+	background-color:white;
+}
+h1:hover{
+	background-color:#24a0ed;
+}
+
+.sidenav{
+	margin-top:120px;
+}
+.sidenav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidenav ul li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+ 
+.sidenav ul li a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.sidenav ul li a:hover:not(.active) {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#home {
+  margin-left: 28%;
+  padding: 1px 16px;
+  height: 400px;
+  margin-top: 5%;
+  margin-bottom :5%;
+}
+#reg {
+  margin-left: 25%;
+  padding: 1px 16px;
+  height: 450px;
+  margin-top: 5%;	
+  margin-bottom :5%;
+}
+#show {
+  margin-left: 28%;
+  padding: 1px 16px;
+  height: 400px;
+  margin-top: 5%;
+  margin-bottom  :5%;
+}
+
+#formTable{
+	margin-left:20%;
+}
+th, td {
+  padding: 15px;
+}
+#show td{
+border:1px solid #000000;
+}
+
+@media screen and (max-width: 900px) {
+  .sidenav ul{
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  .sidenav ul li a {
+    float: left;
+    padding: 15px;
+  }
+  
+  #home {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidenav ul li a {
+    text-align: center;
+    float: none;
+  }
+}

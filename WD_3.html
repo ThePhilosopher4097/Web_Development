@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="wd_3_css.css">
+		<!-- CSS only -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+	
+    <body>
+      
+       <div class="Logo" >
+			<img src="https://mitaoe.ac.in/assets/images/logo-color-1.png" height="110px" align="left" id="logoimg">
+			<h1>Welcome to MIT Academy of Engineering</h1>
+			<hr style="width: 1000px; margin-left:350px;">
+		</div>
+		
+		<div class="sidenav">
+			<ul >
+            <li><a href="#home" id="homebtn">Home</a></li>
+            <li><a href="#reg" id="regbtn">Register</a></li>
+            <li><a href="#show" id="showbtn">Show</a></li>
+			</ul>
+		</div>
+		
+        <div id="home">
+		<h2><br>FIDE World Cup 2021</h2>
+            <p><br>
+               The 2021 FIDE Online Chess Olympiad is a worldwide online event where hundreds of participants 
+			   from more than 100 different national teams will compete for the gold. 
+			   The event will run from August 20 to September 15 on the Chess.com server.<br><br>
+			   The registered teams will be ranked according to their Federation Performance Ranking (FPR) 
+			   according to their results in the open and women's section of the 2018 FIDE Olympiad in Batumi and in the 2020 FIDE Online Olympiad. 
+			   Based on their rankings, teams will be divided into four divisions, from Division 4 to Top Division.
+            </p>
+            <p>
+				We’ll tell you all about both these announcements down below. We also have a recap to close out the 2021 Chess Tournament in Russia and celebrate all of the amazing achievements our community has had during this unique season. 
+			</p>	
+        </div>
+		
+        <div id="reg" style="display:block;">
+			<h2 align="center"><br>Hurry Up ! Register yourself for the Tournament</h2><br>
+            <form action="#" method="POST" id="regform">
+                <table border="2" id="formTable" padding="30px">
+                    <tr>
+                        <td>Full Name</td>
+                        <td>
+                            <input 
+                                type="text" 
+                                name="fullname"
+                                >
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>Email</td>
+                        <td>
+                            <input 
+                                type="text" 
+                                name="email"
+                                >
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>Category</td>
+                        <td>
+                            <select name="category">
+                                <option value="">Select Category</option>
+                                <option value="Health">Health</option>
+                                <option value="Education">Education</option>
+        
+                            </select>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>Gender</td>
+                        <td>
+                            <label>
+                            <input 
+                                type="radio" 
+                                name="gender"
+                                value="F"
+                                > Female
+                            </label>
+        
+                            <label>
+                            <input 
+                                type="radio" 
+                                name="gender"
+                                value="M"
+                                > Male
+                            </label>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>Hobby</td>
+                        <td>
+                            <label>
+                            <input 
+                                type="checkbox" 
+                                name="hobby"
+                                value="Cricket"
+                                > Cricket
+                            </label>
+                            
+                            <label>
+                            <input 
+                                type="checkbox" 
+                                name="hobby"
+                                value="Chess"
+                                > Chess
+                            </label>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>Address</td>
+                        <td>
+                            <textarea name="address" cols="30" rows="2">
+                            </textarea>
+                        </td>
+                    </tr>
+        
+                    <tr style="text-align: center;">
+                        <td colspan="2">
+                            <input class="btn"
+                                type="reset" 
+                                name="clear"
+                                value="Clear"
+				id="clear"
+                                >
+                            <input class="btn"
+                                type="submit" 
+                                name="Register"
+				id="register"
+                                value="Register"
+                                >
+                        </td>
+                    </tr>
+                </table>
+                </form>
+		
+        </div>
+
+        <div id="show" style="display: block;">
+            <h2><br>Registered Users</h2>
+        </div>
+
+        <script src="wd_3_script.js"></script>
+		
+    </body>
+</html>
