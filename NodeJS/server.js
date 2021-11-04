@@ -57,25 +57,14 @@ app.post('/update-data', function(request,response){
     var phone = request.body.phone
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(String(email).toLowerCase())){
-        //email is validated
         response.json({msg:'Error : Email not verified !', iserror:true}); //can't set headers after they are sent
     }
-    //else part
     else{
-        data = "Name|" + name +"|Email|"+ email +'|Gender|' + gender + '\n'
-        files.appendFile('write_test.txt',data,function(err){
-            if(err)
-                console.log(err);
-            else
-                console.log("Write operation complete!");
-        });
         var Records = [
             {Name : name, Email : email, Category:category, Gender : gender, Game : game, Address : address, Phone : phone}
         ]
-        DB.insertData("Tournaments", "Chess", Records);
-        //response.sendFile('D:\\Programming\\HTML CSS\\NodeJS\\WD_3.html');
+        DB.updateData("Tournaments", "Chess", Records);
         response.json({msg:'User Added Successfully !', iserror:false});
-
     }
 });
 

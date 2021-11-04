@@ -476,13 +476,14 @@ input{
 
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script>
+                    total_rows = 0
                     let EM = null
                     let sr = 0
                     let table= null
                     let data = {
                         
                     }
-                    
+                    reload = true
                     email = null
                     update = false
                     rowid = null
@@ -509,22 +510,26 @@ input{
                         if(id==="show"){
                             console.log("show page")
                             console.log(table.children)
-                            var counter = 0; 
+                            var counter = 0;
+                            console.log("Hello !!!")
                             table.childNodes.forEach(row => {
                                 if (counter!=0){
                                     console.log(row)
-                                    table.removeChild(row)
+                                    table.removeChild("row_"+counter)
                                 }
                                 counter++
                             });
-
                             await axios.get('/get-data')
                                 .then(response => {
                                     const Rows = response.data.msg
                                     console.log(Rows)
+                                    reload = true
+                                    console.log("Total Rows =  "+total_rows)
                                     Rows.forEach(items => {
                                         delete items['_id']
+                                        total_rows++;
                                         addTableRow(items)})
+                                    reload = true
                                 console.log('Records', response);
                                 })
                                 .catch(error => console.error(error));
@@ -556,6 +561,11 @@ input{
                         if (update) {
                             delete data[email]
                             updateRowData(rowid, obj)
+                            await axios.post('/update-data', {"fullname":Username,"email":obj.email,"gender":obj.gender,"category":obj.category,"game":obj.game,"address":obj.address,"phone":obj.phone})
+                                .then(response => {
+                                    console.log('POST: user is updated', response);
+                                })
+                                .catch(error => console.error(error));
                             update = false
                         } else {
                             await axios.post('/submit-data', obj)
@@ -660,7 +670,8 @@ input{
                     }
                     
                     function addTableRow(items) {
-                        sr++
+                        if(reload==true) {sr=0;reload=false;}
+                        sr++;
                         var tr = document.createElement("tr")
                         tr.setAttribute("id","row_" + sr)
                         for (const key in items) {
@@ -684,6 +695,7 @@ input{
                         email = tr.childNodes[1].innerText
                         fillFormData(data[email])
                         showhide({target:{id:'regBtn'}})
+
                         document.getElementById("register").value = "Update"
                         update = true
 

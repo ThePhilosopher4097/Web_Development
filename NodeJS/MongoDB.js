@@ -26,6 +26,23 @@ function insertData (Database_Name, Table_Name, Records){
     });
 }
 
+function updateData (Database_Name, Table_Name, Records){
+
+    MongoClient.connect(url, function(err, database){
+        if (err) throw error;
+        let db = database.db(Database_Name)
+        console.log(Records)
+        db.collection(Table_Name).updateOne(
+            { "Email": Records[0].Email},
+            {$set:{Name:Records[0].Name, Email:Records[0].Email, Gender:Records[0].Gender, Game:Records[0].Game, Address:Records[0].Address, Phone:Records[0].Phone}}, 
+            function(err, result){
+                if (err) throw err;
+                console.log("||..............Records Updated............||");
+            }
+        );
+    });
+}
+
 function deleteData(Database_Name, Table_Name, email){
     MongoClient.connect(url, function(err, database){
         if (err) throw error;
@@ -46,4 +63,4 @@ async function getData(Database_Name, Table_Name){
 }
 
 
-module.exports = { insertData, deleteData, getData };
+module.exports = { insertData, deleteData, getData, updateData };
