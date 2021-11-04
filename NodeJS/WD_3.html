@@ -216,9 +216,9 @@ table {
     padding: 15px;
     text-align: center;
     border-bottom: 1px solid #ddd;
-    width : 100%
+    width : 70%
 }
-th, td {
+th{
     background-color: #d6d9a7;
     /*border: 1px solid black;*/
     border-radius: 5%;
@@ -251,6 +251,79 @@ input{
     border-radius: 5px;
     border-color: #24a0ed;
 }
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    text-align: center;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    text-align: center;
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  .modal-body {padding: 2px 16px;text-align: center;}
+  
+  .modal-footer {
+    text-align: center;
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
         </style>
 </head>
 
@@ -375,13 +448,32 @@ input{
                 </table>
             </form>
 
+                <!--pop-up-->
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header" id="modalH">
+                            <h2 id="popup1"></h2>
+                            <span class="close">&times;</span>
+                            
+                        </div>
+                        <div class="modal-body">
+                            <p id="popup2"></p>
+                            <p id="popup3"></p>
+                        </div>
+                        <div class="modal-footer" id="modalF">
+                            <h3 id="popup4"></h3>
+                        </div>
+                    </div>
+                </div>
+
         </div>
         
         <div id="show" style="display: block;">
             <h2><br>Registered Users</h2>
         </div>
 
-    
+
+
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script>
                     let EM = null
@@ -417,7 +509,7 @@ input{
                         if(id==="show"){
                             console.log("show page")
                             console.log(table.children)
-                            var counter = 0 
+                            var counter = 0; 
                             table.childNodes.forEach(row => {
                                 if (counter!=0){
                                     console.log(row)
@@ -427,15 +519,15 @@ input{
                             });
 
                             await axios.get('/get-data')
-                            .then(response => {
-                                const Rows = response.data.msg
-                                console.log(Rows)
-                                Rows.forEach(items => {
-                                    delete items['_id']
-                                    addTableRow(items)})
-                            console.log('Records', response);
-                            })
-                            .catch(error => console.error(error));
+                                .then(response => {
+                                    const Rows = response.data.msg
+                                    console.log(Rows)
+                                    Rows.forEach(items => {
+                                        delete items['_id']
+                                        addTableRow(items)})
+                                console.log('Records', response);
+                                })
+                                .catch(error => console.error(error));
                         }
                     }
                     
@@ -458,7 +550,7 @@ input{
                             address:    form.elements['address'].value,
                             phone:      form.elements['phone'].value
                         }
-                    
+                        Username = form.elements['fullname'].value
                         data[obj['email']] = obj
                     
                         if (update) {
@@ -468,21 +560,51 @@ input{
                         } else {
                             await axios.post('/submit-data', obj)
                             .then(response => {
-                            console.log('POST: user is added', response);
-
-                            //addTableRow(obj)
-                        })
-                        .catch(error => console.error(error));
+                                console.log('POST: user is added', response);
+                                console.log(response.data["iserror"])
+                                if (response.data["iserror"]) {
+                                    popUp("#f44336","Error : Improper data","Invalid Email !","The email you entered is NOT valid", "Please enter a valid email and try again (check spelling mistakes). (eg: abc@xyz.com)")    
+                                }
+                                else{
+                                    popUp("#5cb85c", "Success","Congratulations "+Username+" !!!","You have been successfully registered in the FIDE tournament 2021","Thank you for showing your interest in the tournament. Stay tuned for further updates.")
+                                }
+                                //addTableRow(obj")
+                            }).catch(error => console.error(error));
                         }
                         
                         form.reset()
-                        const showshow = document.getElementById("show")
-                        const showreg = document.getElementById("reg")
-                        showreg.style.display="none"
-                        showshow.style.display="block"
                         
                     }
 
+                    function popUp(bgc,m1,m2,m3,m4){
+                        var modal = document.getElementById("myModal");
+                        var span = document.getElementsByClassName("close")[0]; 
+                        const showshow = document.getElementById("show")
+                        const showreg = document.getElementById("reg")
+                        
+                        document.getElementById("modalH").style.backgroundColor = bgc;
+                        document.getElementById("modalF").style.backgroundColor = bgc;
+                        document.getElementById("popup1").innerText=m1
+                        document.getElementById("popup2").innerText=m2
+                        document.getElementById("popup3").innerText=m3
+                        document.getElementById("popup4").innerText=m4
+                        modal.style.display = "block";
+                        // When the user clicks on <span> (x), close the modal
+                        span.onclick = function() {
+                            modal.style.display = "none";
+                            //showreg.style.display="none"
+                            //showshow.style.display="block"
+                        }
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function(event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                                //showreg.style.display="none"
+                                //showshow.style.display="block"
+                            }
+                        }
+                        
+                    }
 
                     function updateRowData(rowid, obj) {
                         console.log(rowid)
@@ -603,7 +725,6 @@ input{
                         }
                         if (label=="Delete"){
                             btn.addEventListener('click', handler)
-
                             td.appendChild(btn)
                         }
                         tr.appendChild(td)

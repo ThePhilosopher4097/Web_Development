@@ -25,7 +25,7 @@ app.post('/submit-data', function(request,response){
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(String(email).toLowerCase())){
         //email is validated
-        response.json({msg:'Error : Email not verified !'}); //can't set headers after they are sent
+        response.json({msg:'Error : Email not verified !', iserror:true}); //can't set headers after they are sent
     }
     //else part
     else{
@@ -41,11 +41,43 @@ app.post('/submit-data', function(request,response){
         ]
         DB.insertData("Tournaments", "Chess", Records);
         //response.sendFile('D:\\Programming\\HTML CSS\\NodeJS\\WD_3.html');
-        response.json({msg:'User Added Successfully !'});
+        response.json({msg:'User Added Successfully !', iserror:false});
 
     }
 });
 
+app.post('/update-data', function(request,response){
+
+    var name = request.body.fullname
+    var email = request.body.email
+    var category = request.body.category
+    var gender = request.body.gender
+    var game = request.body.game
+    var address = request.body.address
+    var phone = request.body.phone
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(String(email).toLowerCase())){
+        //email is validated
+        response.json({msg:'Error : Email not verified !', iserror:true}); //can't set headers after they are sent
+    }
+    //else part
+    else{
+        data = "Name|" + name +"|Email|"+ email +'|Gender|' + gender + '\n'
+        files.appendFile('write_test.txt',data,function(err){
+            if(err)
+                console.log(err);
+            else
+                console.log("Write operation complete!");
+        });
+        var Records = [
+            {Name : name, Email : email, Category:category, Gender : gender, Game : game, Address : address, Phone : phone}
+        ]
+        DB.insertData("Tournaments", "Chess", Records);
+        //response.sendFile('D:\\Programming\\HTML CSS\\NodeJS\\WD_3.html');
+        response.json({msg:'User Added Successfully !', iserror:false});
+
+    }
+});
 
 app.post('/delete-data', function(request,response){
     console.log('Delete Function called !!!', request.body)
@@ -68,7 +100,7 @@ app.get('/get-data', async function(request,response){
         if (err) throw error;
         let db = database.db("Tournaments")
         await db.collection("Chess").find({}).toArray(async function(err, docs) {
-            console.log(docs)
+            //console.log(docs)
             return response.json({msg:docs});
         });
     });
