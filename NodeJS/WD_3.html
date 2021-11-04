@@ -154,11 +154,11 @@ height: 450px;
 margin-top: 5%;	
 margin-bottom :5%;
 color: black;
-                animation: fadeIn linear 7s;
-                -webkit-animation: fadeIn linear 7s;
-                -moz-animation: fadeIn linear 7s;
-                -o-animation: fadeIn linear 7s;
-                -ms-animation: fadeIn linear 7s;
+                animation: fadeIn linear 2s;
+                -webkit-animation: fadeIn linear 2s;
+                -moz-animation: fadeIn linear 2s;
+                -o-animation: fadeIn linear 2s;
+                -ms-animation: fadeIn linear 2s;
 }
 #show {
 margin-left: 28%;
@@ -167,11 +167,11 @@ height: 400px;
 margin-top: 5%;
 margin-bottom  :5%;
 color: black;
-                animation: fadeIn linear 7s;
-                -webkit-animation: fadeIn linear 7s;
-                -moz-animation: fadeIn linear 7s;
-                -o-animation: fadeIn linear 7s;
-                -ms-animation: fadeIn linear 7s;
+                animation: fadeIn linear 2s;
+                -webkit-animation: fadeIn linear 2s;
+                -moz-animation: fadeIn linear 2s;
+                -o-animation: fadeIn linear 2s;
+                -ms-animation: fadeIn linear 2s;
 }
 
 #formTable{
@@ -211,6 +211,7 @@ float: none;
 table {
     margin-left : 5px;
     border : 1px solid black;
+    border-radius: 5%;
     border-collapse: collapse;
     padding: 15px;
     text-align: center;
@@ -218,7 +219,9 @@ table {
     width : 100%
 }
 th, td {
-    border: 1px solid black;
+    background-color: #d6d9a7;
+    /*border: 1px solid black;*/
+    border-radius: 5%;
     transition : height 2s;
     transition-timing-function: ease-in-out;
     transition-duration: 0s;
@@ -285,12 +288,13 @@ input{
 		
         <div id="reg" style="display:block;">
 			<h2><br>Hurry Up ! Register yourself for the Tournament</h2><br>
-            <form action="/submit-data" method="POST" id="regform" onsubmit="return formsubmit()">
+            
+            <form id="regform" onsubmit="formsubmit(event)">
                 <table border="2" id="formTable" padding="30px">
                     <tr>
                         <td>Full Name</td>
                         <td>
-                            <input type="text" name="fullname">
+                            <input type="text" name="fullname" required>
                         </td>
                     </tr>
         
@@ -370,7 +374,7 @@ input{
                     </tr>
                 </table>
             </form>
-                
+
         </div>
         
         <div id="show" style="display: block;">
@@ -396,12 +400,11 @@ input{
                         document.querySelector("#homebtn").addEventListener('click',showhide)
                         document.querySelector("#regbtn").addEventListener('click',showhide)
                         document.querySelector("#showbtn").addEventListener('click',showhide)
-                        //document.querySelector("#regform").addEventListener('onsubmit', formsubmit)
                     
                         createTable()
                     }
                     
-                    function showhide(e) {
+                    async function showhide(e) {
                         var id = e.target.id
                         var pageIds = ['home','reg','show']
                     
@@ -411,11 +414,33 @@ input{
                         
                         id = id.substr(0,id.length-3)
                         document.getElementById(id).style.display = 'block'
+                        if(id==="show"){
+                            console.log("show page")
+                            console.log(table.children)
+                            var counter = 0 
+                            table.childNodes.forEach(row => {
+                                if (counter!=0){
+                                    console.log(row)
+                                    table.removeChild(row)
+                                }
+                                counter++
+                            });
+
+                            await axios.get('/get-data')
+                            .then(response => {
+                                const Rows = response.data.msg
+                                console.log(Rows)
+                                Rows.forEach(items => {
+                                    delete items['_id']
+                                    addTableRow(items)})
+                            console.log('Records', response);
+                            })
+                            .catch(error => console.error(error));
+                        }
                     }
                     
-                    function formsubmit(/*e*/) {
-                        //e.preventDefault()
-                        //var form = document.getElementById(e.target.id)
+                    async function formsubmit(e) {
+                        e.preventDefault()
                         var form = document.getElementById("regform")
                         var gameList = document.getElementsByName("game")
                         var game = []
@@ -430,7 +455,8 @@ input{
                             category:   form.elements['category'].value,
                             gender:     form.elements['gender'].value,
                             game:       game,
-                            address:    form.elements['address'].value
+                            address:    form.elements['address'].value,
+                            phone:      form.elements['phone'].value
                         }
                     
                         data[obj['email']] = obj
@@ -440,20 +466,24 @@ input{
                             updateRowData(rowid, obj)
                             update = false
                         } else {
-                            addTableRow(obj)
+                            await axios.post('/submit-data', obj)
+                            .then(response => {
+                            console.log('POST: user is added', response);
+
+                            //addTableRow(obj)
+                        })
+                        .catch(error => console.error(error));
                         }
                         
-                        //form.reset()
+                        form.reset()
                         const showshow = document.getElementById("show")
                         const showreg = document.getElementById("reg")
                         showreg.style.display="none"
                         showshow.style.display="block"
                         
-                        var form = document.createElement("form");
-                        form.setAttribute("method", "post");
-                        form.setAttribute("action", "/update-data");
                     }
-                    
+
+
                     function updateRowData(rowid, obj) {
                         console.log(rowid)
                         var tr = document.getElementById(rowid)
@@ -464,6 +494,7 @@ input{
                         tr.childNodes[3].innerText = obj.gender
                         tr.childNodes[4].innerText = obj.game
                         tr.childNodes[5].innerText = obj.address
+                        tr.childNodes[6].innerText = obj.phone
                         update = true
                     }
                     
@@ -479,7 +510,8 @@ input{
                         form.elements['gender'].value   = obj.gender
                         form.elements['game'].value   = obj.game
                         form.elements['address'].value  = obj.address
-                        
+                        form.elements['phone'].value = obj.phone
+
                         var gameList = document.getElementsByName("game")
                     
                         for (const hb of obj.game) {
@@ -533,7 +565,6 @@ input{
                         document.getElementById("register").value = "Update"
                         update = true
 
-                        //window.location = '/update-data'
                     }
                     
                     async function deleteRow(e) {
@@ -548,7 +579,6 @@ input{
                         console.log(tr+" tr")
                         //delete data[email]
                         
-                        //window.location = '/delete-data'
                         await axios.post('/delete-data', {"Email":email})
                         .then(response => {
                             console.log('POST: user is deleted', response);
@@ -562,7 +592,6 @@ input{
                     function createButton(tr, label, handler) {
 
                         var btn = document.createElement("button")
-                       //btn.setAttribute("type", "submit")
                         btn.innerText = label
                         btn.setAttribute("id","row_" + label + "_" + sr)
                         btn.setAttribute("class","button_" + label)
@@ -578,11 +607,10 @@ input{
                             td.appendChild(btn)
                         }
                         tr.appendChild(td)
-                        //btn.addEventListener('click', handler)
                     }
                     
                     function addTableHead() {
-                        var colname = ['Full Name', 'Email', 'Category', 'Gender', 'Game', 'Address','Update','Delete']
+                        var colname = ['Full Name', 'Email', 'Category', 'Gender', 'Game', 'Address', 'contact', 'Update','Delete']
                         var tr = document.createElement("tr")
                         for (const name of colname) {
                             var th = document.createElement("th")

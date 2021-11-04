@@ -17,6 +17,7 @@ app.post('/submit-data', function(request,response){
 
     var name = request.body.fullname
     var email = request.body.email
+    var category = request.body.category
     var gender = request.body.gender
     var game = request.body.game
     var address = request.body.address
@@ -24,7 +25,7 @@ app.post('/submit-data', function(request,response){
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(String(email).toLowerCase())){
         //email is validated
-        response.send('Error : Email not verified !'); //can't set headers after they are sent
+        response.json({msg:'Error : Email not verified !'}); //can't set headers after they are sent
     }
     //else part
     else{
@@ -36,13 +37,15 @@ app.post('/submit-data', function(request,response){
                 console.log("Write operation complete!");
         });
         var Records = [
-            {Name : name, Email : email, Gender : gender, Game : game, Address : address, Phone : phone}
+            {Name : name, Email : email, Category:category, Gender : gender, Game : game, Address : address, Phone : phone}
         ]
         DB.insertData("Tournaments", "Chess", Records);
         //response.sendFile('D:\\Programming\\HTML CSS\\NodeJS\\WD_3.html');
-        return "localhost:5000#home";
+        response.json({msg:'User Added Successfully !'});
+
     }
 });
+
 
 app.post('/delete-data', function(request,response){
     console.log('Delete Function called !!!', request.body)
@@ -54,4 +57,20 @@ app.post('/delete-data', function(request,response){
 
 var server = app.listen(5000, function(){
     console.log("Node server is running at http://localhost:5000")
+});
+
+
+app.get('/get-data', async function(request,response){
+    
+    var MongoClient = require('mongodb').MongoClient
+    const url = "mongodb://localhost:27017/MyMongoDB"
+    await MongoClient.connect(url, async function(err, database){
+        if (err) throw error;
+        let db = database.db("Tournaments")
+        await db.collection("Chess").find({}).toArray(async function(err, docs) {
+            console.log(docs)
+            return response.json({msg:docs});
+        });
+    });
+
 });

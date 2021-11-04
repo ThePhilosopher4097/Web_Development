@@ -8,7 +8,7 @@ function insertData (Database_Name, Table_Name, Records){
         if (err) throw error;
     
         let db = database.db(Database_Name)
-
+        console.log(Records)
         if (db.collection(Table_Name).find({"Email":Records[0].Email}).count()>0)
             db.collection(Table_Name).updateOne(
                 { "Email": Records[0].Email},
@@ -34,4 +34,16 @@ function deleteData(Database_Name, Table_Name, email){
     });
 }
 
-module.exports = { insertData, deleteData };
+async function getData(Database_Name, Table_Name){
+    await MongoClient.connect(url, async function(err, database){
+        if (err) throw error;
+        let db = database.db(Database_Name)
+        await db.collection(Table_Name).find().toArray(async function(err, docs) {
+            console.log(docs)
+            return docs;
+        });
+    });
+}
+
+
+module.exports = { insertData, deleteData, getData };
