@@ -12,6 +12,7 @@ function F1(n1,n2){
 }
 F1(10)
 
+//Anonymous function
 var data = (num1,num2) => console.log(num1+num2)
 data(20,30)
 

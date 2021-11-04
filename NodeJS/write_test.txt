@@ -1,0 +1,138 @@
+Name||Email|techaspires.mit@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|techaspires.mit@gmail.com|Gender|undefined
+Name||Email|pankaj@gmail.com|Gender|undefined
+Name||Email|pankaj@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|techaspires.mit@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|techaspires.mit@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|ecocandor_sameerpatil@aol.com|Gender|undefined
+Name||Email|pankaj@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|techaspires.mit@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|techaspires.mit@gmail.com|Gender|undefined
+Name||Email|techaspires.mit@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|ecocandor_sameerpatil@aol.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|techaspires.mit@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name|Sameer Patil|Email|sameer.patil@mitaoe.ac.in|Gender|M
+Name|Sameer Patil|Email|sameer.patil@mitaoe.ac.in|Gender|M
+Name|Manik Patil|Email|sameer.patil@mitaoe.ac.in|Gender|M
+Name|Pallavi Patil|Email|techaspires.mit@gmail.com|Gender|M
+Name|Pallavi Patil|Email|techaspires.mit@gmail.com|Gender|F
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|techaspires.mit@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name|Sameer Patil|Email|sameer.patil@mitaoe.ac.in|Gender|M
+Name|Sameer Patil|Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name|Sameer Patil|Email|sameer.patil@mitaoe.ac.in|Gender|M
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name|Sameer|Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|techaspires.mit@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameerchandile2@gmail.com|Gender|undefined
+Name||Email|tensfantasy@gmail.com|Gender|undefined
+Name||Email|santdnyanrajmauli@gmail.com|Gender|undefined
+Name|Chetan Patil|Email|santdnyanrajmauli@gmail.com|Gender|undefined
+Name||Email|hitesh@gmail.com|Gender|undefined
+Name||Email|ritesh.sonawane.bjp@gmail.com|Gender|undefined
+Name||Email|santdnyanrajmauli@gmail.com|Gender|undefined
+Name|Harshal Patil|Email|ritesh.sonawane.bjp@gmail.com|Gender|M
+Name|Harshal Patil|Email|ritesh.sonawane.bjp@gmail.com|Gender|M
+Name|Chetan Patil|Email|hitesh@gmail.com|Gender|M
+Name|Sameer Patil|Email|santdnyanrajmauli@gmail.com|Gender|M
+Name|Chetan Patil|Email|hitesh@gmail.com|Gender|M
+Name|Kedar Jadhav|Email|ritesh.sonawane.bjp@gmail.com|Gender|M
+Name|Chetan Patil|Email|hitesh@gmail.com|Gender|M
+Name|Mandar Desai|Email|Mandar@gmail.com|Gender|M
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|tensfantasy@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|tensfantasy@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|hitesh@gmail.com|Gender|undefined
+Name||Email|ritesh.sonawane.bjp@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameerchandile2@gmail.com|Gender|undefined
+Name||Email|ritesh.sonawane.bjp@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameerchandile2@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|hitesh@gmail.com|Gender|undefined
+Name||Email|ritesh.sonawane.bjp@gmail.com|Gender|undefined
+Name||Email|ritesh.sonawane.bjp@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|hitesh@gmail.com|Gender|undefined
+Name||Email|tensfantasy@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameerchandile2@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|hitesh@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameerchandile2@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|ritesh.sonawane.bjp@gmail.com|Gender|undefined
+Name||Email|ritesh.sonawane.bjp@gmail.com|Gender|undefined
+Name||Email|ritesh.sonawane.bjp@gmail.com|Gender|undefined
+Name||Email|ritesh.sonawane.bjp@gmail.com|Gender|undefined
+Name||Email|sameerchandile2@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|hitesh@gmail.com|Gender|undefined
+Name||Email|ritesh.sonawane.bjp@gmail.com|Gender|undefined
+Name||Email|santdnyanrajmauli@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|hitesh@gmail.com|Gender|undefined
+Name||Email|sameerchandile2@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name|Sameer Patil|Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name|Sameer Patil|Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|santdnyanrajmauli@gmail.com|Gender|undefined
+Name|Sameer Patil|Email|sameer.patil@mitaoe.ac.in|Gender|M
+Name|Pankaj|Email|pankaj@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name|Sameer Patil|Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameerchandile2@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name||Email|santdnyanrajmauli@gmail.com|Gender|undefined
+Name||Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name|Sameer Patil|Email|sameer.patil@mitaoe.ac.in|Gender|undefined
+Name|Harshal Patil|Email|hitesh@gmail.com|Gender|M

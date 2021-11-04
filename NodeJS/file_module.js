@@ -20,7 +20,15 @@ files.appendFile('write_test.txt',"This is file module!",function(err){
 
 var data = files.readFileSync('write_test.txt','utf8');
 console.log("File contents are: "+data);
+data = data.split('\n')
+for(let i=0;i<data.length;i++){
+    k = data[i].split('|')
+    for(let j=0;j<8;j++){
+        console.log(k[j]);
+    }
+}
 
-files.unlink('write_test.txt',function(){
+/*files.unlink('write_test.txt',function(){
     console.log("File deleted!");
 });
+*/
