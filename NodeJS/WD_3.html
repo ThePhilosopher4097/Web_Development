@@ -558,12 +558,19 @@ input{
                     
                         if (update) {
                             delete data[email]
-                            updateRowData(rowid, obj)
+                            //updateRowData(rowid, obj)
                             await axios.post('/update-data', {"fullname":Username,"email":obj.email,"gender":obj.gender,"category":obj.category,"game":obj.game,"address":obj.address,"phone":obj.phone})
                                 .then(response => {
                                     console.log('POST: user is updated', response);
+                                    if (response.data["iserror"]) {
+                                        popUp("#f44336","Error : Improper data","Invalid Email !","The email you entered is NOT valid", "Please enter a valid email and try again (check spelling mistakes). (eg: abc@xyz.com)")    
+                                    }
+                                    else{
+                                        popUp("#5cb85c", "Success","Update Successful for user : "+Username+" !!!","You profile has been successfully updated for the FIDE tournament 2021","Thank you for showing your interest in the tournament. Stay tuned for further updates.")
+                                    }
                                 })
                                 .catch(error => console.error(error));
+                                
                             update = false
                         } else {
                             await axios.post('/submit-data', obj)
@@ -576,7 +583,6 @@ input{
                                 else{
                                     popUp("#5cb85c", "Success","Congratulations "+Username+" !!!","You have been successfully registered in the FIDE tournament 2021","Thank you for showing your interest in the tournament. Stay tuned for further updates.")
                                 }
-                                //addTableRow(obj")
                             }).catch(error => console.error(error));
                         }
                         
