@@ -34,7 +34,7 @@ function updateData (Database_Name, Table_Name, Records){
         console.log(Records)
         db.collection(Table_Name).updateOne(
             { "Email": Records[0].Email},
-            {$set:{Name:Records[0].Name, Email:Records[0].Email, Gender:Records[0].Gender, Game:Records[0].Game, Address:Records[0].Address, Phone:Records[0].Phone}}, 
+            {$set:{Name:Records[0].Name, Email:Records[0].Email, Category:Records[0].Category, Gender:Records[0].Gender, Game:Records[0].Game, Address:Records[0].Address, Phone:Records[0].Phone}}, 
             function(err, result){
                 if (err) throw err;
                 console.log("||..............Records Updated............||");
