@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Student Collab Home Page</title>
+  <meta charset="utf-8">
+  <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+         .bg-image {
+                      background-image: url("./assets/home/Home-background.png");
+                      height: 500px;
+                      background-position: center;
+                      background-repeat: no-repeat;
+                      background-size: cover;
+                      position: relative;
+                      padding-top: 10px;
+                    }
+    </style>
+
+
+
+    </head>
+
+<body>
+  
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+        <a href="http://localhost:4200"><img src="./assets/home/Logo.png" class="img-fluid" width="200px" height="50px" alt="Student Collab Logo"></a>
+    
+    <ul class="nav navbar-nav navbar-right">
+      <li><a routerLink="login-signup"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container" id="container">
+  <div class="title" id="title">Welcome to Student Colab</div>
+  <div class="subtitle" id="subtitle">
+    <div class="text1" id="text1">An all in one place to work together</div>
+    <div class="text2" id="text2"></div>
+  </div>
+</div>
+<div class="bg-image" id="bgimg">
+</div>
+
+
+
+<div id="login-signup">
+  <router-outlet></router-outlet>
+</div>
+
+
+<script type="text/javascript">
+        //function section in Javascript and Jquery...
+      const Container = document.getElementsById("container")
+      const BGimg = document.getElementById("bgimg")
+      function myData() {
+        return;
+      }
+
+      function show() {
+       //document.getElementById('anotherFunction').classList.toggle('Active');
+      }  
+
+      function login(){
+        Container.style.display = "none";
+        BGimg.style.display = "none";
+      }
+</script>
+
+
+
+</body>
+</html>

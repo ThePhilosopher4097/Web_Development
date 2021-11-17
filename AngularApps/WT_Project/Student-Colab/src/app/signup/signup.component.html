@@ -1,0 +1,177 @@
+<html>
+<html lang="en">
+
+<head>    
+
+    <link rel="stylesheet" media="screen"
+        href="https://cdn.dribbble.com/assets/auth-868fa9404b9574e401bf603c690c029d50ef91711c84c628e9a46d2055d8b663.css" />
+
+
+</head>
+
+<body
+    class="logged-out not-pro not-player not-self not-team not-on-team  js-connect-with-application show-register-container connect-with-application">
+
+    <div id="main-container" style="height:800px">
+        <section class="auth-sidebar" style="width: 450px; height:600px;">
+            <div class="auth-sidebar-content">
+                <header>
+                    <a href="/" class="logo">
+                        <img src="./assets/home/Logo.png" width="300px" height="100">
+                    </a>
+                    <h2 class="font-heading-2">Get Started with your <br>Student-Colab account</h2><br>
+                    <img src="./assets/home/signup.png" style="width:200px; height:200px">
+                </header>
+            </div>
+        </section>
+        <section class="content" style="width: 1000px;">
+            <main>
+                <div class="auth-content">
+                    
+                    <div class="auth-register-container auth-form signup-form">
+                        <form class=" gen-form with-messages signup" id="new_user" action="https://dribbble.com/signup"
+                            accept-charset="UTF-8" method="post">
+                            <div class="form-field hide">
+                                <fieldset>
+                                    <label for="contact_surname">Surname</label>
+                                    <input type="text" name="surname" id="surname" />
+                                </fieldset>
+                            </div>
+
+
+                            <input type="hidden" name="product" id="product" />
+
+
+
+
+                            <input type="hidden" name="user[bio]" id="user_bio" />
+                            <input type="hidden" name="user[location]" id="user_location" />
+
+                            <div class="form-field-group">
+                                <div class="form-field">
+                                    <fieldset class="user_name"><label for="user_name">Name</label><input
+                                            autocomplete="name" class="text-input" type="text" value="Ten&#39;s Fantasy"
+                                            name="user[name]" id="user_name" /></fieldset>
+                                </div>
+
+                                <div class="form-field">
+                                    <fieldset class="user_login"><label for="user_login">Username</label><input
+                                            autocorrect="off" autocapitalize="off" autocomplete="username"
+                                            class="text-input" type="text" name="user[login]" id="user_login" />
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <fieldset class="user_email"><label for="user_email">Email</label><input
+                                        class="text-input" type="text" value="tensfantasy@gmail.com" name="user[email]"
+                                        id="user_email" /></fieldset>
+                            </div>
+
+                            <div class="form-field">
+                                <fieldset class="user_password"><label for="user_password">Password</label><input
+                                        class="text-input" placeholder="6+ characters" type="password"
+                                        name="user[password]" id="user_password" /></fieldset>
+                            </div>
+
+                            <div class="form-field check-wrap opt-in">
+                                <fieldset>
+                                    <input type="checkbox" id="user_agree_to_terms" name="user[agree_to_terms]" />
+                                    <label for="user_agree_to_terms">
+                                        Creating an account means you’re okay with our
+                                        <a target="_blank" href="/terms">Terms of Service</a>,
+                                        <a target="_blank" href="/privacy">Privacy Policy</a>, and our default
+                                        <a target="_blank" href="/notifications">Notification Settings</a>.
+                                    </label>
+                                </fieldset>
+                            </div>
+
+                            <div class="form-btns">
+                                <input type="submit" name="commit" value="Create Account" class="button form-sub"
+                                    data-disable-with="Create Account" />
+                            </div>
+
+
+                            <p class="recaptcha-terms">
+                                This site is protected by reCAPTCHA and the Google
+                                <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                                <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                            </p>
+
+
+                            <div class="g-recaptcha" data-sitekey="6LdmBTIUAAAAAM4NIokaWu8p3BBuYEw3CxuDdyg_"
+                                data-callback="captchaCallback" data-size="invisible" data-badge="inline"></div>
+
+                            <div class="captcha-not-loaded processing">
+                                <p>Uh oh… We’re still waiting for our <a
+                                        href="https://www.google.com/recaptcha/intro/index.html" target="_blank"
+                                        rel="noopener noreferrer">spam prevention code</a> to load.</p>
+                                <p>If this message doesn’t go away soon, please ensure JavaScript is enabled, your ad
+                                    blocker is disabled, and reload the page to try again.</p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="auth-connect-account-container">
+                        <p>Sign in with your Student-Colab credentials to connect your account.</p>
+                        <form action="/account/authentications" accept-charset="UTF-8" method="post"><input name="utf8"
+                                type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token"
+                                value="Xo09VhIGw1qKz2IIFrMnkimlZ7FzHAJgYpgfW9Cl3M8ePdlLsi7qBOzM1UYW+bV6mBn19RL9+IJL4lkf5WnM7w==" />
+
+                            <div class="form-fields">
+                                <fieldset>
+                                    <label for="login">Username or Email</label>
+                                    <input type="text" name="login" id="login" tabindex="1" class="text-input"
+                                        autocorrect="off" autocapitalize="off" />
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="password">Password <a class="margin-l-8"
+                                            href="/password_resets/new">Forgot?</a></label>
+                                    <input type="password" name="password" id="password" value="" tabindex="2"
+                                        class="text-input" />
+                                </fieldset>
+                            </div>
+
+                            <input class="button form-sub" type="submit" value="Sign In" tabindex="3" />
+                        </form>
+                    </div>
+                </div>
+
+
+            </main>
+        </section>
+
+        <section class="content" style="width: 400px; overflow-y:scroll;">
+            <div id="list1" class="dropdown-check-list" >
+        
+                <div class="neuo">
+                  <h4 style=" margin-top:30px;margin-left: 150px;" >CLUBS MANAGEMENT</h4>
+                  <h4 style=" margin-left: 150px;margin-bottom:30px;">Select your clubs ----> </h4>
+                  
+                    <ul class="" *ngFor="let club of clubs" style="align-content: flex-start;">
+                        <li>
+                            <label class="club_class"> {{club}} 
+                                <input type="checkbox" ngModel #club_name id="{{club}}" name="{{club}}" value="{{club}}">
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+
+                    </ul> 
+
+                    
+
+                    <br><br><br>
+                    <input class="btn-xl btn btn-info"  type="button" name="submit" value="SUBMIT"><br><br><br>
+                    <input type="button" class="btn btn-danger" name="submit" value="Skip" style="margin-left: 170px;">
+                </div>
+            </div>
+            
+        </section>
+    </div>
+
+   
+
+</body>
+
+</html>
