@@ -1,5 +1,4 @@
 
-
 .dropdown-check-list {
     display: inline-block;
   }
@@ -226,6 +225,8 @@ h4{
 
 
 .modal {
+  border: 3px solid;
+  box-shadow: 5px 10px #888888;
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -268,8 +269,15 @@ h4{
 }
 
 /* The Close Button */
+#closure{
+  border-radius: 25%;
+  background-color: black;
+}
+#closure:hover{
+  background-color: white;
+}
 .close {
-  color: white;
+  color: black;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -277,7 +285,7 @@ h4{
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: white;
   text-decoration: none;
   cursor: pointer;
 }
@@ -298,6 +306,9 @@ h4{
   color: white;
 }
 
+#popup2, #popup3{
+  font-size: 16px;
+}
 
 
 
