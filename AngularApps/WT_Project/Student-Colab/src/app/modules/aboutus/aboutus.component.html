@@ -1,0 +1,58 @@
+<body style="border-radius:2%; background-color: #FF3CAC;
+background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);">
+
+<div class="container" style="border-radius:2%; background-color: #FF3CAC;
+background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+ padding:30px; margin-top:0px;">
+    <div class="row blog" style="background-color: rgba(255, 255, 255, .15);  
+    backdrop-filter: blur(5px); padding:40px;">
+        <h1 class="center mx-auto text-center py-4" style="color: white;">Our Team Members</h1><br>
+       
+	   <div class="col-md-12"><br>
+            <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+
+                <ol class="invisible carousel-indicators">
+                    <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#blogCarousel" data-slide-to="1"></li>
+                </ol>
+
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active" *ngFor="let data of images1 | keyvalue">
+                        <div class="column">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="our-team" style="background-color: rgb(148, 194, 235);">
+                                    <div class="pic">
+                                        <img [src]="'./assets/team/'+data.key+'.jpg'">
+                                    </div>
+                                    <div class="team-content">
+                                        <h3 class="title">{{data.value[0]}}</h3>
+                                        <span class="post"><b>{{data.value[1]}}</b></span>
+                                    </div>
+                                    <ul class="social">
+                                        <li>
+                                            <button style="margin-left: -30px;" class="button button5">Github</button> <button class="button button5" style="margin-left: 70px;">LinkedIn</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                           
+                         
+                        </div>
+                        <!--.row-->
+                    </div>
+                    <!--.item-->
+
+                    <!--.item-->
+
+                </div>
+                <!--.carousel-inner-->
+            </div>
+            <!--.Carousel-->
+
+        </div>
+    </div>
+</div>
+</body>

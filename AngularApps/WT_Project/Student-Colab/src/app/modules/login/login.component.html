@@ -1,0 +1,62 @@
+<html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body
+    class="logged-out not-pro not-player not-self not-team not-on-team  js-connect-with-application show-register-container connect-with-application">
+
+    <div id="main-container" style="height:600px">
+        <section class="auth-sidebar" style="width: 800px; height:600px">
+            <div class="auth-sidebar-content">
+                <header>
+                    <a href="/" class="logo">
+                      <img src="./assets/home/Logo.png" width="400px" height="125">
+                    </a>
+                    <h2 class="font-heading-2">Login to your <br /> Student-Colab account</h2>
+                </header>
+                
+            </div>
+        </section>
+        <section class="content">
+            <main>
+                <div class="auth-content">
+                    <img src="./assets/home/login.png" style="margin-top: -120px;" height="200px" width="200px">
+                    <div class="auth-connect-account-container">
+                        <p>Sign in with your Student-Colab credentials to connect your account.</p>
+                        <form action="/account/authentications" accept-charset="UTF-8" method="post"><input name="utf8"
+                                type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token"
+                                value="Xo09VhIGw1qKz2IIFrMnkimlZ7FzHAJgYpgfW9Cl3M8ePdlLsi7qBOzM1UYW+bV6mBn19RL9+IJL4lkf5WnM7w==" />
+
+                            <div class="form-fields">
+                                <fieldset>
+                                    <label for="login">Username or Email</label>
+                                    <input type="text" name="login" id="login" tabindex="1" class="text-input"
+                                        autocorrect="off" autocapitalize="off" />
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="password">Password <a class="margin-l-8"
+                                            href="/password_resets/new">Forgot?</a></label>
+                                    <input type="password" name="password" id="password" value="" tabindex="2"
+                                        class="text-input" />
+                                </fieldset>
+                            </div>
+
+                            <input class="button form-sub" type="submit" value="Sign In" tabindex="3" />
+                            <br><br><br><br>
+                        </form>
+                    </div>
+                </div>
+
+
+            </main>
+        </section>
+        
+    </div>
+
+</body>
+
+</html>

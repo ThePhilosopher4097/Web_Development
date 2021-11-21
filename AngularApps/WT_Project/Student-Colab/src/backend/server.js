@@ -1,13 +1,27 @@
 var express = require('express');
 var app = express();
 const bodyparser = require('body-parser')
-var files = require('fs');
-const DB = require('./MongoDB');
+const mongoose = require('mongoose');
+const cors = require("cors");
+
+const DB_URL = require('./config');
+console.log(DB_URL)
+mongoose.connect(DB_URL);
+db = mongoose.connection;
+
+db.once("open", () => {
+  console.log("Connection to MongoDB database established successfully..!");
+}).on("error", (err) => {
+  console.log(err);
+});
 
 
 app.use(express.urlencoded({extended : true}));
 app.use(express.static(__dirname));
 app.use(bodyparser.json())
+app.use(cors())
+
+const Student = require("./schemas/Student");
 
 app.get('/', function(request,response){
     response.sendFile('D:\\Programming\\HTML CSS\\NodeJS\\WD_3.html');
@@ -17,11 +31,11 @@ app.post('/submit-data', function(request,response){
 
     var name = request.body.fullname
     var email = request.body.email
-    var category = request.body.category
+    var bio = request.body.bio
     var gender = request.body.gender
-    var game = request.body.game
-    var address = request.body.address
+    var password = request.body.password
     var phone = request.body.phone
+    console.log(request.body);
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(String(email).toLowerCase())){
         //email is validated
@@ -30,17 +44,14 @@ app.post('/submit-data', function(request,response){
     //else part
     else{
         data = "Name|" + name +"|Email|"+ email +'|Gender|' + gender + '\n'
-        files.appendFile('write_test.txt',data,function(err){
-            if(err)
-                console.log(err);
-            else
-                console.log("Write operation complete!");
-        });
         var Records = [
-            {Name : name, Email : email, Category:category, Gender : gender, Game : game, Address : address, Phone : phone}
+            {Name : name, Email : email, Gender : gender, Phone : phone, Bio:bio, Password:password}
         ]
-        DB.insertData("Tournaments", "Chess", Records);
-        //response.sendFile('D:\\Programming\\HTML CSS\\NodeJS\\WD_3.html');
+        //DB.insertData("StudentColab", "StudentColab", Records);
+        Student.insertMany(Records, function(err, result){
+          if (err) throw err;
+          console.log("||..............Records inserted............||");
+        });
         response.json({msg:'User Added Successfully !', iserror:false});
 
     }

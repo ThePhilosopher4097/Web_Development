@@ -4,30 +4,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { UStoreComponent } from './ustore/ustore.component';
-import { LoginComponent } from './login/login.component';
-import { StudentHomeComponent } from './student-home/student-home.component';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { LoginComponent } from './modules/login/login.component';
+import { UserHomeComponent } from './modules/user-home/user-home.component';
+import { WelcomeComponent } from './modules/welcome/welcome.component';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './modules/signup/signup.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { ListViewModule } from '@syncfusion/ej2-angular-lists';
 import { FormsModule, FormBuilder, FormGroup, ReactiveFormsModule, FormArray, FormControl, ValidatorFn} from '@angular/forms';
 import { MatCheckboxModule, MatCheckboxDefaultOptions, MAT_CHECKBOX_DEFAULT_OPTIONS } from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SidebarDirective } from './dashboard/sidebar.directive';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { UstoreComponent } from './modules/ustore/ustore.component';
+import { AboutusComponent } from './modules/aboutus/aboutus.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UStoreComponent,
     LoginComponent,
-    StudentHomeComponent,
+    UserHomeComponent,
     WelcomeComponent,
     SignupComponent,
-    SidebarDirective,
-    DashboardComponent
+    UstoreComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,
