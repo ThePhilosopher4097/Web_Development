@@ -84,7 +84,12 @@ export class SignupComponent implements OnInit {
                     console.log('POST: user is added', response);
                     console.log(response.data["iserror"])
                     if (response.data["iserror"]) {
+                      if(response.data["isduplicate"]){
+                        this.popUp("#EED202","Error : Duplicate data","Duplicate Email !","The email you entered already exists", "Please enter a different email and try again (check spelling mistakes). (email must be unique)")    
+                      }
+                      else{
                         this.popUp("#f44336","Error : Improper data","Invalid Email !","The email you entered is NOT valid", "Please enter a valid email and try again (check spelling mistakes). (eg: abc@xyz.com)")    
+                      }
                     }
                     else{
                         this.popUp("#5cb85c", "Success","Congratulations "+userobj.fullname+" !!!","You have been successfully registered as a Club member in Student  Colab","Thank you for showing your interest in Club-Colab. Stay tuned for further updates.");

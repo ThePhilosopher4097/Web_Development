@@ -9,7 +9,7 @@ const StudentSchema = new Schema({
   Bio: { type: String, required: true },
   Gender : {type: String, required: true},
   Password : {type: String, required: true},
-  Clubs : [{type: String, required:false, unique:true}]
+  Clubs : [{type: String, required:false}]
 });
 
 var Student = mongoose.model("Student", StudentSchema);

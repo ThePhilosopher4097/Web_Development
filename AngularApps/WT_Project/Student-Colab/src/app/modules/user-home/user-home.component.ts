@@ -13,11 +13,17 @@ export class UserHomeComponent implements OnInit {
     const USER = this.router.getCurrentNavigation()?.extras?.state;
     this.Current_Logged_User = USER;
     console.log(this.Current_Logged_User);
+    
   }
 
   ngOnInit(): void {
   }
 
+  clearHistory(){    
+    var backlen = history.length;
+    history.go(-backlen);
+    window.location.href = 'http://localhost:4200/';
 
+  }
 
 }

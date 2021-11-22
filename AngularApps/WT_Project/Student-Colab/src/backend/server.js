@@ -25,7 +25,7 @@ app.use(cors())
 const Student = require("./schemas/Student");
 
 app.get('/', function(request,response){
-    response.sendFile('D:\\Programming\\HTML CSS\\NodeJS\\WD_3.html');
+    //response.sendFile('D:\\Programming\\HTML CSS\\NodeJS\\WD_3.html');
 });
 
 //For Registration
@@ -42,21 +42,34 @@ app.post('/submit-data', function(request,response){
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(String(email).toLowerCase())){
         //email is validated
-        response.json({msg:'Error : Email not verified !', iserror:true}); //can't set headers after they are sent
+        response.json({msg:'Error : Email not verified !', iserror:true, isduplicate:false}); //can't set headers after they are sent
     }
     //else part
     else{
-        data = "Name|" + name +"|Email|"+ email +'|Gender|' + gender + '\n'
+        
         var Records = [
             {Name : name, Email : email, Gender : gender, Phone : phone, Bio:bio, Password:password, Clubs:clubs}
         ]
-        //DB.insertData("StudentColab", "StudentColab", Records);
-        Student.insertMany(Records, function(err, result){
-          if (err) throw err;
-          console.log("||..............Records inserted............||");
-        });
-        SM.sendMail(name, email);
-        response.json({msg:'User Added Successfully !', iserror:false});
+        
+            Student.find({Email:email},(err, docs) => {
+            console.log(docs);
+            if(docs.length>0){
+                response.json({msg:'User already exists !', iserror:true, isduplicate:true});
+                console.log("Duplicae ---> "+docs)
+            } else{
+                    try{
+                        Student.insertMany(Records, function(err, result){
+                        if (err) throw err;
+                        else{
+                            console.log("||..............Records inserted............||");
+                            SM.sendMail(name, email);
+                            response.json({msg:'User Added Successfully !', iserror:false, isduplicate:false});
+                        }});
+                    }catch(err){response.json({msg:'User already exists !', iserror:true, isduplicate:true});}
+            }
+        }).catch();
+
+        
 
     }
 });

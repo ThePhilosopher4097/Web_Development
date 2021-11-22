@@ -9,14 +9,14 @@
 
   #navbar{
     /*background-color: #51658d;*/
-    background-color: rgba(82, 133, 241, 0.877);/*#0d2036;*/
+    background-color: #6b69d6;/*rgba(82, 133, 241, 0.877);/*#0d2036;*/
     height: 70px;
   }
   
   #right_nav_btn{
     border-radius: 10%;
-    background-color: rgba(82, 133, 241, 0.877); 
-    border-color:rgba(82, 133, 241, 0.877);
+    background-color: #6b69d6;/*rgba(82, 133, 241, 0.877);*/
+    border-color: #6b69d6;/*rgba(82, 133, 241, 0.877);*/
   }
   #right_nav_btn:hover{
     background-color: #616166;
@@ -25,10 +25,10 @@
   
   #container {
     line-height: 100px;
-    background: rgba( 245, 166, 35, 0.65 );
+    background: rgba( 245, 166, 35, 0.45 );
     box-shadow: 0 10px 40px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 3.5px );
-    -webkit-backdrop-filter: blur( 3.5px );
+    /*backdrop-filter: blur( 3.5px );
+    -webkit-backdrop-filter: blur( 3.5px );*/
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
         border-radius: 10px;
@@ -38,6 +38,10 @@
     position:relative;
   }
   
+  #container:hover{
+    background: rgba( 245, 166, 35, 1 );
+  }
+
   #title {
     font-size: 5vw;
   }

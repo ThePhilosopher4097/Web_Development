@@ -124,24 +124,25 @@
 <div style="height: 700px; background: rgb(2,0,36);
 background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(20,6,39,1) 0%, rgba(52,16,44,1) 0%, rgba(98,31,52,1) 0%, rgba(119,38,55,1) 0%, rgba(222,133,133,0.2665441176470589) 0%, rgba(237,77,77,0.10127801120448177) 0%, rgba(90,63,198,0.3617822128851541) 51%, rgba(24,126,97,0.12088585434173671) 98%);">
 
-    <div id="container" style="margin-top:-20px;" class="container" *ngIf = "clicked">
-      <div class="title" id="title" style="position:relative;">{{typewriter_display}}|</div>
-      <div class="subtitle" id="subtitle">
-      </div>
-    </div>
+    
 
     <div id="bg-image" class="bg-image" style="overflow-y: scroll; z-index:12;">
         <div id="slideshow" style="margin-top:-50px;" *ngIf = "clicked">
           <ng-image-slider [lazyLoading]=true [autoSlide]=1 [animationSpeed]=2 [imagePopup]=true [infinite]="true" [imageSize]="{width: 1100, height: 650, space: 150}" [images]="imageObject" #nav></ng-image-slider>
+
+          <!--This was above bgimage earlier-->
+          <div id="container" style="margin-top:-400px;" class="container" *ngIf = "clicked">
+            <div class="title" id="title" style="position:relative;">{{typewriter_display}}|</div>
+            <div class="subtitle" id="subtitle">
+            </div>
+          </div>
+
         </div>
         
         <router-outlet></router-outlet>  
         
 
-        <div style="display: inline-flex; overflow:scroll; background-color: rgba(255, 255, 255, .15);  
-        backdrop-filter: blur(5px); z-index:0;">
-          <img src="./assets/home/bgimg_10.jpg"/>
-        </div>
+        
 
 
         <main *ngIf = "clicked" class="absolute h-full w-full flex flex-col text-white text-center leading-snug   overflow-hidden">

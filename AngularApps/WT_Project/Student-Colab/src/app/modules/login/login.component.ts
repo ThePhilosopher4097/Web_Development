@@ -9,11 +9,12 @@ import axios from 'axios';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { showerror : false;}
 
   ngOnInit(): void {
   }
-
+  showerror = false;
+  spam_counter = 0;
   async handleLogin(userobj){
     await axios.post('http://localhost:5000/user-login', userobj)
                 .then(response => {
@@ -23,7 +24,11 @@ export class LoginComponent implements OnInit {
                     console.log(User)
                     if (response.data["iserror"]) {
                       console.log("Login Failed");
-                      //print error
+                      this.spam_counter++;
+                      this.showerror = true;
+                      setTimeout(()=>{ 
+                        this.showerror = false; 
+                      }, 3000);
                     }
                     else{
                         (document.querySelector("#loginForm") as HTMLFormElement)!.reset();

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+    <meta charset="utf-8">
 </head>
 
 <body
@@ -16,6 +16,13 @@
                       <img src="./assets/home/Logo.png" width="400px" height="125">
                     </a>
                     <h2 class="font-heading-2">Login to your <br /> Student-Colab account</h2>
+                    <div *ngIf="spam_counter==1 && showerror" style="margin-left:400px;"><span style='font-size:150px;'>😅</span><br><br><br><br><span style='font-size:20px;color:indianred;margin-left:10px;'><b>Wrong Credentials!</b></span></div>
+                    <div *ngIf="spam_counter==2 && showerror" style="margin-left:400px;"><span style='font-size:150px;'>😐</span><br><br><br><br><span style='font-size:20px;color:indianred;margin-left:10px;'><b>Wrong Credentials!</b></span></div>
+                    <div *ngIf="spam_counter==3 && showerror" style="margin-left:400px;"><span style='font-size:150px;'>😑</span><br><br><br><br><span style='font-size:20px;color:indianred;margin-left:10px;'><b>Wrong Credentials!</b></span></div>
+                    <div *ngIf="spam_counter==4 && showerror" style="margin-left:400px;"><span style='font-size:150px;'>😤</span><br><br><br><br><span style='font-size:20px;color:indianred;margin-left:10px;'><b>Wrong Credentials!</b></span></div>
+                    <div *ngIf="spam_counter==5 && showerror" style="margin-left:400px;"><span style='font-size:150px;'>😠</span><br><br><br><br><span style='font-size:20px;color:indianred;margin-left:10px;'><b>Wrong Credentials!</b></span></div>
+                    <div *ngIf="spam_counter==6 && showerror" style="margin-left:400px;"><span style='font-size:150px;'>😡</span><br><br><br><br><span style='font-size:20px;color:indianred;margin-left:10px;'><b>Wrong Credentials!</b></span></div>
+                    <div *ngIf="spam_counter>=7 && showerror" style="margin-left:400px;"><span style='font-size:150px;'>🙏</span><br><br><br><br><span style='font-size:20px;color:indianred;margin-left:10px;'><b>Please don't spam!</b></span></div>
                 </header>
                 
             </div>
