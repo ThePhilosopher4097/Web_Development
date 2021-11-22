@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserHomeComponent implements OnInit {
 
-  constructor() { }
+  Current_Logged_User : any;
+  constructor(private router: Router, private route:ActivatedRoute) { 
+    const USER = this.router.getCurrentNavigation()?.extras?.state;
+    this.Current_Logged_User = USER;
+    console.log(this.Current_Logged_User);
+  }
 
   ngOnInit(): void {
   }
+
+
 
 }

@@ -28,6 +28,7 @@ app.get('/', function(request,response){
     response.sendFile('D:\\Programming\\HTML CSS\\NodeJS\\WD_3.html');
 });
 
+//For Registration
 app.post('/submit-data', function(request,response){
 
     var name = request.body.fullname
@@ -94,18 +95,20 @@ var server = app.listen(5000, function(){
     console.log("Node server is running at http://localhost:5000")
 });
 
+//For Login
+app.post('/user-login', async function(request,response){
 
-app.get('/get-data', async function(request,response){
-    
-    var MongoClient = require('mongodb').MongoClient
-    const url = "mongodb://localhost:27017/MyMongoDB"
-    await MongoClient.connect(url, async function(err, database){
-        if (err) throw error;
-        let db = database.db("Tournaments")
-        await db.collection("Chess").find({}).toArray(async function(err, docs) {
-            //console.log(docs)
-            return response.json({msg:docs});
-        });
+    var username = request.body.username
+    var password = request.body.password
+    console.log(request.body.username)
+    await Student.find({Email:username, Password:password},(err, docs) => {
+        console.log(docs);
+        if(docs.length>0){
+            result = false
+        } else{
+            result = true
+        }
+        return response.json({userdata:docs, iserror:result});
     });
 
 });

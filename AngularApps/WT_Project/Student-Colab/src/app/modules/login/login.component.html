@@ -26,9 +26,7 @@
                     <img src="./assets/home/login.png" style="margin-top: -120px;" height="200px" width="200px">
                     <div class="auth-connect-account-container">
                         <p>Sign in with your Student-Colab credentials to connect your account.</p>
-                        <form action="/account/authentications" accept-charset="UTF-8" method="post"><input name="utf8"
-                                type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token"
-                                value="Xo09VhIGw1qKz2IIFrMnkimlZ7FzHAJgYpgfW9Cl3M8ePdlLsi7qBOzM1UYW+bV6mBn19RL9+IJL4lkf5WnM7w==" />
+                        <form (submit)="loginUser($event)" method="post" id="loginForm" name="loginForm">
 
                             <div class="form-fields">
                                 <fieldset>

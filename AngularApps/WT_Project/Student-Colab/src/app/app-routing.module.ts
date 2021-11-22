@@ -34,6 +34,9 @@ const routes: Routes = [
     path : 'signup', component:SignupComponent
   },
   {
+    path : 'user-home', component: UserHomeComponent
+  },
+  {
     path : '**', component: Page404Component
   }
 ];
