@@ -50,12 +50,6 @@ export class WelcomeComponent implements OnInit{
           thumbImage: 'assets/home/Home-background.png',
           alt: 'bgimg_1',
       },
-      
-      {
-        image: 'assets/home/bgimg_5.PNG',
-          thumbImage: 'assets/home/bgimg_5.PNG',
-          alt: 'bgimg_5',
-      },
       {
         image: 'assets/home/bgimg_6.webp',
           thumbImage: 'assets/home/bgimg_6.webp',

@@ -3,6 +3,7 @@ var app = express();
 const bodyparser = require('body-parser')
 const mongoose = require('mongoose');
 const cors = require("cors");
+const SM = require("../assets/javascript/send_mail");
 
 const DB_URL = require('./config');
 console.log(DB_URL)
@@ -35,6 +36,7 @@ app.post('/submit-data', function(request,response){
     var gender = request.body.gender
     var password = request.body.password
     var phone = request.body.phone
+    var clubs = request.body.clubs
     console.log(request.body);
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(String(email).toLowerCase())){
@@ -45,13 +47,14 @@ app.post('/submit-data', function(request,response){
     else{
         data = "Name|" + name +"|Email|"+ email +'|Gender|' + gender + '\n'
         var Records = [
-            {Name : name, Email : email, Gender : gender, Phone : phone, Bio:bio, Password:password}
+            {Name : name, Email : email, Gender : gender, Phone : phone, Bio:bio, Password:password, Clubs:clubs}
         ]
         //DB.insertData("StudentColab", "StudentColab", Records);
         Student.insertMany(Records, function(err, result){
           if (err) throw err;
           console.log("||..............Records inserted............||");
         });
+        SM.sendMail(name, email);
         response.json({msg:'User Added Successfully !', iserror:false});
 
     }

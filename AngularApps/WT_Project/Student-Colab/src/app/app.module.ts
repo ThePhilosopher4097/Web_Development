@@ -37,10 +37,10 @@ import { AboutusComponent } from './modules/aboutus/aboutus.component';
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [{provide: MAT_CHECKBOX_DEFAULT_OPTIONS, useValue: { clickAction: 'noop' } as MatCheckboxDefaultOptions}],
+  providers: [{provide: MAT_CHECKBOX_DEFAULT_OPTIONS, useValue: { clickAction: 'noop' } as MatCheckboxDefaultOptions},{provide: 'window', useFactory: getWindow }],
   bootstrap: [AppComponent]
 })
 
 export class AppModule { }
-
+export function getWindow() { return window; }
 platformBrowserDynamic().bootstrapModule(AppModule);

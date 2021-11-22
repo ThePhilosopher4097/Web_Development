@@ -5,7 +5,7 @@
 
     <link rel="stylesheet" media="screen"
         href="https://cdn.dribbble.com/assets/auth-868fa9404b9574e401bf603c690c029d50ef91711c84c628e9a46d2055d8b663.css" />
-
+        <meta charset="UTF-8">
 
 </head>
 
@@ -110,9 +110,7 @@
                                             <div class="modal-content" id="modal-content">
                                                 <div class="modal-header" id="modalH">
                                                     <div id="closure"><span class="close" id="close">&times;</span></div>
-                                                    <h2 id="popup1"></h2>
-                                                    
-                                                    
+                                                    <h2 id="popup1"></h2>   
                                                 </div>
                                                 <div class="modal-body" id="modal-body">
                                                     <p id="popup2"></p>
@@ -140,12 +138,18 @@
                 <div class="neuo">
                     <form>
                   <h4 style=" margin-top:30px;" id="clubHover">CLUBS MANAGEMENT</h4>
-                  <h4 style=" margin-bottom:30px;" id="clubHover">Select your clubs </h4>
-                  
-                    <ul class="" *ngFor="let club of clubs" style="align-content: flex-start;">
-                        <li id="hoverbg">
-                            <label class="club_class"><span id="club_name"> {{club}} </span>
-                                <input type="checkbox" ngModel #club_name id="{{club}}" name="{{club}}" value="{{club}}">
+                  <h4 style=" margin-bottom:30px;height:70px;" id="clubHover">Select your clubs &nbsp;&nbsp;?</h4>
+                    <div ><svg style="display: hidden;" class="checkmark2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                        </svg>
+                    </div>
+
+
+                    <ul class="" *ngFor="let club of clubs" style="align-items: left; text-align:left;">
+                        <li id="hoverbg" >
+                            <label class="club_class" style="margin-left:100px;"><span id="club_name"> {{club.club_name}} </span>
+                                <input type="checkbox" ngModel #club_name id="{{club.id}}" (change)="addClubs($event, club.club_name)" name="club_names" value="{{club.club_name}}">
                                 <span class="checkmark"></span>
                             </label>
                         </li>
@@ -156,7 +160,6 @@
 
                     <br><br><br>
                     <input class="btn-xl btn btn-info"  type="button" name="submit" value="DONE"><br><br><br>
-                    <input type="button" class="btn btn-danger" name="submit" value="Skip" style="margin-left: 170px;">
                 </form>
                 </div>
             </div>

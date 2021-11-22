@@ -5,12 +5,8 @@ import {ThemePalette} from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import axios from 'axios';
- 
-export interface Cartoon {
-  id: number;
-  name: string;
-}
 
+ 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -22,19 +18,40 @@ export class SignupComponent implements OnInit {
    
  constructor(){}
 
+ clubs = [{
+  club_name : 'Chess_Club',
+  id : 1
+  },
+  {
+    club_name : 'Ethical Hacking Club',
+    id : 2
+  },
+  {
+    club_name : 'AI ML Club',
+    id : 3
+  },
+  {
+    club_name : 'No Clubs for now \uD83D\uDE05',
+    id : 4
+  }
+]
+
+ selectedClubs : any;
+
   ngOnInit(): void {
+    this.selectedClubs = new Array<string>();
   }
 
-  
-  
-  clubs = ['Chess_Club', 'Ethical Hacking Club', 'AI ML Club'];
-  selectedClubs = [];
-
-  @ViewChild('club_name') input;
-  
-  addClubs(event){
-    //this.selectedClubs.push(event.target.value);
+  addClubs(e:any, club_name:string){
+      if (e.target.checked){
+        this.selectedClubs.push(club_name);
+      }else{
+        this.selectedClubs = this.selectedClubs.filter(m=>m!=club_name);
+      }
   }
+  
+  //clubs = ['Chess_Club', 'Ethical Hacking Club', 'AI ML Club', 'No Clubs for now \uD83D\uDE05'];
+  
 
   async handleRegistration(userobj){
     await axios.post('http://localhost:5000/submit-data', userobj)
@@ -72,7 +89,8 @@ export class SignupComponent implements OnInit {
       gender : Gender,
       bio : Bio,
       password : Password,
-      phone : Phone
+      phone : Phone,
+      clubs : this.selectedClubs
     }
 
     console.log("This is User Object ----------> "+userobj);
