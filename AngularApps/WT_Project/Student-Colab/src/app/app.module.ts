@@ -16,6 +16,7 @@ import { MatCheckboxModule, MatCheckboxDefaultOptions, MAT_CHECKBOX_DEFAULT_OPTI
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UstoreComponent } from './modules/ustore/ustore.component';
 import { AboutusComponent } from './modules/aboutus/aboutus.component';
+import { Page404Component } from './modules/page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AboutusComponent } from './modules/aboutus/aboutus.component';
     WelcomeComponent,
     SignupComponent,
     UstoreComponent,
-    AboutusComponent
+    AboutusComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,

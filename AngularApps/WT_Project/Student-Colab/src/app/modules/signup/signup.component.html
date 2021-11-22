@@ -139,7 +139,9 @@
                     <form id="select_clubs">
                   <h4 style=" margin-top:30px;" id="clubHover">CLUBS MANAGEMENT</h4>
                   <h4 style=" margin-bottom:30px;height:70px;" id="clubHover">Select your clubs &nbsp;&nbsp;?</h4>
-                    <div ><svg style="display: hidden;" class="checkmark2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    
+                    <div id="donetick" *ngIf="done">
+                        <svg class="checkmark2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
                         <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
                         <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
                         </svg>
@@ -159,7 +161,7 @@
                     
 
                     <br><br><br>
-                    <input class="btn-xl btn btn-info"  type="button" name="submit" value="DONE"><br><br><br>
+                    <input class="btn-xl btn btn-info"  type="button" name="submit" (click)="callDone()" value="DONE"><br><br><br>
                 </form>
                 </div>
             </div>

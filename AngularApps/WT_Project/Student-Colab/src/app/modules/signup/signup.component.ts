@@ -5,7 +5,7 @@ import {ThemePalette} from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import axios from 'axios';
-
+import * as $ from "jquery";
  
 @Component({
   selector: 'app-signup',
@@ -16,30 +16,40 @@ import axios from 'axios';
 
 export class SignupComponent implements OnInit {
    
- constructor(){}
-
- clubs = [{
+  constructor(){}
+  done = false;
+  no_clubs_selected = false;
+  clubs = [{
   club_name : 'Chess_Club',
   id : 1
   },
   {
-    club_name : 'Ethical Hacking Club',
-    id : 2
+  club_name : 'Ethical Hacking Club',
+  id : 2
   },
   {
-    club_name : 'AI ML Club',
-    id : 3
+  club_name : 'AI ML Club',
+  id : 3
   },
   {
-    club_name : 'No Clubs for now \uD83D\uDE05',
-    id : 0
+  club_name : 'No Clubs for now \uD83D\uDE05',
+  id : 0
   }
-]
+  ]
 
  selectedClubs : any;
 
   ngOnInit(): void {
     this.selectedClubs = new Array<string>();
+  }
+
+  callDone(){
+    if(this.selectedClubs.length>0 || this.no_clubs_selected===true){
+      this.done = true;
+      setTimeout(()=>{ 
+        this.done = false; 
+      }, 3000);
+    }
   }
 
   addClubs(e:any, club_name:string, id:number){
@@ -51,10 +61,12 @@ export class SignupComponent implements OnInit {
             (document.querySelector("[id='"+i+"']") as HTMLInputElement)!.checked = false;
           }
           this.selectedClubs.length = 0;
+          this.no_clubs_selected = true;
         }
       }else{
         this.selectedClubs = this.selectedClubs.filter(m=>m!=club_name);
         if(id===0){
+          this.no_clubs_selected = false;
           for(let i=1;i<4;i++){
             (document.querySelector("[id='"+i+"']") as HTMLInputElement)!.disabled = false;
           }

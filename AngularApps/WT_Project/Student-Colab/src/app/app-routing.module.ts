@@ -5,6 +5,7 @@ import { SignupComponent } from './modules/signup/signup.component';
 import { WelcomeComponent } from './modules/welcome/welcome.component';
 import { UserHomeComponent } from './modules/user-home/user-home.component';
 import { AboutusComponent } from './modules/aboutus/aboutus.component';
+import { Page404Component } from './modules/page404/page404.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,9 @@ const routes: Routes = [
   },
   {
     path : 'signup', component:SignupComponent
+  },
+  {
+    path : '**', component: Page404Component
   }
 ];
 
