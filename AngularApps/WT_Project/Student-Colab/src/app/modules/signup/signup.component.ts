@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
   },
   {
     club_name : 'No Clubs for now \uD83D\uDE05',
-    id : 4
+    id : 0
   }
 ]
 
@@ -42,12 +42,25 @@ export class SignupComponent implements OnInit {
     this.selectedClubs = new Array<string>();
   }
 
-  addClubs(e:any, club_name:string){
+  addClubs(e:any, club_name:string, id:number){
       if (e.target.checked){
         this.selectedClubs.push(club_name);
+        if(id===0){
+          for(let i=1;i<4;i++){
+            (document.querySelector("[id='"+i+"']") as HTMLInputElement)!.disabled = true;
+            (document.querySelector("[id='"+i+"']") as HTMLInputElement)!.checked = false;
+          }
+          this.selectedClubs.length = 0;
+        }
       }else{
         this.selectedClubs = this.selectedClubs.filter(m=>m!=club_name);
+        if(id===0){
+          for(let i=1;i<4;i++){
+            (document.querySelector("[id='"+i+"']") as HTMLInputElement)!.disabled = false;
+          }
+        }
       }
+      
   }
   
   //clubs = ['Chess_Club', 'Ethical Hacking Club', 'AI ML Club', 'No Clubs for now \uD83D\uDE05'];
@@ -64,6 +77,7 @@ export class SignupComponent implements OnInit {
                     else{
                         this.popUp("#5cb85c", "Success","Congratulations "+userobj.fullname+" !!!","You have been successfully registered as a Club member in Student  Colab","Thank you for showing your interest in Club-Colab. Stay tuned for further updates.");
                         (document.querySelector("#new_user") as HTMLFormElement)!.reset();
+                        (document.querySelector("#select_clubs") as HTMLFormElement)!.reset();
                     }
                 }).catch(error => console.error(error));
   }

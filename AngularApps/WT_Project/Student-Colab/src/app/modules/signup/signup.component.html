@@ -136,7 +136,7 @@
             <div id="list1" class="dropdown-check-list" >
                 
                 <div class="neuo">
-                    <form>
+                    <form id="select_clubs">
                   <h4 style=" margin-top:30px;" id="clubHover">CLUBS MANAGEMENT</h4>
                   <h4 style=" margin-bottom:30px;height:70px;" id="clubHover">Select your clubs &nbsp;&nbsp;?</h4>
                     <div ><svg style="display: hidden;" class="checkmark2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
@@ -149,7 +149,7 @@
                     <ul class="" *ngFor="let club of clubs" style="align-items: left; text-align:left;">
                         <li id="hoverbg" >
                             <label class="club_class" style="margin-left:100px;"><span id="club_name"> {{club.club_name}} </span>
-                                <input type="checkbox" ngModel #club_name id="{{club.id}}" (change)="addClubs($event, club.club_name)" name="club_names" value="{{club.club_name}}">
+                                <input type="checkbox" ngModel #club_name [id]="club.id" (change)="addClubs($event, club.club_name, club.id)" name="club_names" value="{{club.club_name}}">
                                 <span class="checkmark"></span>
                             </label>
                         </li>
