@@ -8,6 +8,7 @@ body {
   main {
     position: relative;
     height: 100vh;
+    overflow: hidden;
   }
   main .helper {
     background: rgba(0, 0, 0, 0.2);
@@ -15,6 +16,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
+    overflow: hidden;
     transform: translate3d(-50%, -50%, 0);
     padding: 1.2em 2em;
     text-align: center;
@@ -71,14 +73,26 @@ body {
   .menu ul li.icon-dashboard {
     background-image: url("http://www.entypo.com/images//gauge.svg");
   }
-  .menu ul li.icon-customers {
-    background-image: url("http://www.entypo.com/images//briefcase.svg");
+  .menu ul li.icon-ustore {
+    background-image: url("http://www.entypo.com/images/cloud.svg");
   }
-  .menu ul li.icon-users {
+  .menu ul li.icon-others {
     background-image: url("http://www.entypo.com/images//users.svg");
   }
-  .menu ul li.icon-settings {
+  .menu ul li.icon-profile {
     background-image: url("http://www.entypo.com/images//tools.svg");
+  }
+  .menu ul li.icon-clubs {
+    background-image: url("http://www.entypo.com/images/globe.svg");
+  }
+  .menu ul li.icon-todo {
+    background-image: url("http://www.entypo.com/images/briefcase.svg");
+  }
+  .menu ul li.icon-todo {
+    background-image: url("https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-to-do-list-working-from-home-justicon-flat-justicon.png");
+  }
+  .menu ul li.icon-logout {
+    background-image: url("http://www.entypo.com/images/remove-user.svg");
   }
   .menu ul li:hover {
     background-color: rgba(0, 0, 0, 0.1);
@@ -86,6 +100,13 @@ body {
   .menu ul li:focus {
     outline: none;
   }
+  
+  .menu ul li{
+    font-weight: 20px;
+    font-size: 22px;
+  }
+
+  
   @media screen and (max-width: 900px) and (min-width: 400px) {
     body {
       padding-left: 90px;
@@ -200,19 +221,41 @@ body {
   /*________________________________________________________________________________*/
   #toggleLogo{
       width: 200px;
-      height:50px;
+      height:70px;
       margin-left: 300px;
       background-color: black;
       border: 2px solid;
-      border-radius: 6%;
+      border-radius: 7%;
       position: relative;
+      transition: all 1.3s ease;
   }
 
   #sideNavContent{
-      
+      transition: 0.5s;
       overflow: hidden;
+      transition: all .5s ease;
   }
 
   #mySidebar{
     overflow: hidden;
+    transition: margin-left .5s;
+    transition: all 1.3s ease;
+  }
+
+  #profilepic:hover{
+      width:200px;
+      height:200px;
+      transition: all 1s ease;
+  }
+  #username:hover{
+    font-size: 50px;
+    font-weight: 50px;
+    text-decoration-color: #22211d;
+    text-shadow: #22211d;
+    transition: all 1s ease;
+  }
+  .menu ul li:hover{
+    font-size: 24px;
+    transition: all 0.5s ease;
+    background-color: #487c43;
   }

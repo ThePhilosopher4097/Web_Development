@@ -4,41 +4,44 @@
         <nav class="menu" tabindex="0" id="mySidebar">
             <div>
                 <header class="avatar">
-                        <img src="./assets/user/u1.jpg" width="100px" height="100px;"/>
-                        <h2>Fameer F.</h2>
+                        <img src="{{Current_Logged_User[0].Profilepic}}" id="profilepic" width="100px" height="100px;"/>
+                        <h2 id="username">{{Current_Logged_User[0].Name}}</h2>
                 </header>
                 <ul>
-                    <li tabindex="0" class="icon-dashboard"><span>Dashboard</span></li>
-                    <li tabindex="1" class="icon-customers"><span>Customers</span></li>
-                    <li tabindex="2" class="icon-users"><span>Users</span></li>
-                    <li tabindex="3" class="icon-settings"><span>Settings</span></li>
+                    <li routerLink="todo-list" (click)="hideProfile($event)" tabindex="0" class="icon-todo"><span>📝 &nbsp; MY To do List</span></li>
+                    <li routerLink="user-clubs" (click)="hideProfile($event)" tabindex="1" class="icon-clubs"><span>🏠 &nbsp; My Clubs</span></li>
+                    <li (click)="hideProfile($event)" tabindex="1" class="icon-ustore"><span>📂 &nbsp; UStore</span></li>
+                    <li routerLink="search" (click)="hideProfile($event)" tabindex="2" class="icon-others"><span>🙋‍♂️ &nbsp; Find Members</span></li>
+                    <li (click)="showProfile($event)" tabindex="3" class="icon-profile"><span>👨‍💼 &nbsp; My Profile</span></li>
+                    <li (click)="showProfile($event)" (click)="clearHistory()" tabindex="3" class="icon-logout"><span>😴 &nbsp; Logout</span></li>
                 </ul>
             </div>
         </nav>
     </div>
 
-    <div>
+    <div id="Logo">
         <img src="./assets/home/Logo.png" id="toggleLogo" (click)="openCloseNav($event)"/>
     </div>
 
-<main>
-  <div class="helper">
-    RESIZE THE WINDOW
-		<span>Breakpoints on 900px and 400px</span>
-        
-            <p>user-home works!</p>
-            <div>
-                {{Current_Logged_User[0].Email}}
-                {{Current_Logged_User[0].Phone}}
-                {{Current_Logged_User[0].Name}}
-                {{Current_Logged_User[0].Clubs}}
-            </div>
-            <button (click)="clearHistory()">Logout</button>
-        <img src="{{Current_Logged_User[0].Profilepic}}" width="200px" height="200px">
-        
-  </div>
-</main>
+<router-outlet></router-outlet>
 
+<div id="profile">
+    <main>
+    <div class="helper">
+        RESIZE THE WINDOW
+            <span>Breakpoints on 900px and 400px</span>
+            
+                <p>user-home works!</p>
+                <div>
+                    {{Current_Logged_User[0].Email}}
+                    {{Current_Logged_User[0].Phone}}
+                    {{Current_Logged_User[0].Name}}
+                    {{Current_Logged_User[0].Clubs}}
+                </div>
+            
+    </div>
+    </main>
+</div>
 </body>
 
 

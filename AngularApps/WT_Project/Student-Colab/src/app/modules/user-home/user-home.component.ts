@@ -11,13 +11,14 @@ export class UserHomeComponent implements OnInit {
   closed : boolean;
   Current_Logged_User : any;
   ToggleButton = (document.getElementById("toggleLogo") as HTMLElement);
-
+  myprofile : boolean;
 
   constructor(private router: Router, private route:ActivatedRoute) { 
     const USER = this.router.getCurrentNavigation()?.extras?.state;
     this.Current_Logged_User = USER;
     console.log(this.Current_Logged_User);
     this.closed = false;
+    this.myprofile = true;
   }
 
   ngOnInit(): void {
@@ -43,6 +44,15 @@ export class UserHomeComponent implements OnInit {
       (document.getElementById("sideNavContent") as HTMLElement)!.style.display = "hidden";
       this.closed = true;
     }
+  }
+
+  showProfile(event){
+    (document.getElementById("profile") as HTMLElement)!.hidden = false;
+    //(document.getElementById("mySidebar") as HTMLElement)!.style.width = "0px";
+  }
+
+  hideProfile(event){
+    (document.getElementById("profile") as HTMLElement)!.hidden = true;
   }
 
 }

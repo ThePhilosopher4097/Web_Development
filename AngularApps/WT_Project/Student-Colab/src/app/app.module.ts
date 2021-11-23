@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UstoreComponent } from './modules/ustore/ustore.component';
 import { AboutusComponent } from './modules/aboutus/aboutus.component';
 import { Page404Component } from './modules/page404/page404.component';
+import { UserClubsComponent } from './modules/user-home/user-clubs/user-clubs.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { Page404Component } from './modules/page404/page404.component';
     SignupComponent,
     UstoreComponent,
     AboutusComponent,
-    Page404Component
+    Page404Component,
+    UserClubsComponent,
+    UserClubsComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { WelcomeComponent } from './modules/welcome/welcome.component';
 import { UserHomeComponent } from './modules/user-home/user-home.component';
 import { AboutusComponent } from './modules/aboutus/aboutus.component';
 import { Page404Component } from './modules/page404/page404.component';
+import { UserClubsComponent } from './modules/user-home/user-clubs/user-clubs.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,13 @@ const routes: Routes = [
     path : 'signup', component:SignupComponent
   },
   {
-    path : 'user-home', component: UserHomeComponent
+    path : 'user-home', component: UserHomeComponent,
+    children: [
+      {
+        path: 'user-clubs',
+        component: UserClubsComponent
+      }
+    ]
   },
   {
     path : '**', component: Page404Component
