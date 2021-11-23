@@ -50,6 +50,9 @@ app.post('/submit-data', function(request,response){
     var password = request.body.password
     var phone = request.body.phone
     var clubs = request.body.clubs
+    var profile = request.body.profile
+    var date = String(new Date());
+    console.log(date);
     console.log(request.body);
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(String(email).toLowerCase())){
@@ -60,7 +63,7 @@ app.post('/submit-data', function(request,response){
     else{
         
         var Records = [
-            {Name : name, Email : email, Gender : gender, Phone : phone, Bio:bio, Password:password, Clubs:clubs}
+            {Name : name, Email : email, Gender : gender, Phone : phone, Bio:bio, Password:password, Clubs:clubs, Profilepic:profile,JoinDate:date}
         ]
         
             Student.find({Email:email},(err, docs) => {
@@ -177,7 +180,7 @@ app.post('/user-login', async function(request,response){
 
 
 
-
+/*
 app.post('/submit-user', function(request,response){
 
     var name = request.body.fullname
@@ -210,3 +213,5 @@ app.post('/submit-user', function(request,response){
 
     }
 });
+
+*/

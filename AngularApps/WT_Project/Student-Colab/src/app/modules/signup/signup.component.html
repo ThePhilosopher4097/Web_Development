@@ -80,6 +80,13 @@
                                         name="password" id="password" required/></fieldset>
                             </div>
 
+                            <div class="form-field">
+                                <fieldset>
+                                    <label for="image">Upload Profile Image &nbsp;&nbsp;👦 ---> ☁️:</label>
+                                    <input type="file" id="img" name="img" accept=".jpg" (change)="handleFileInput($event)"/>
+                                </fieldset>
+                            </div>
+
                             <div class="form-field check-wrap opt-in">
                                 <fieldset>
                                     <input type="checkbox" id="user_agree_to_terms" name="user[agree_to_terms]" style="border:2px solid;" required/>

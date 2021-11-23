@@ -7,6 +7,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import axios from 'axios';
 import * as $ from "jquery";
  
+interface HTMLInputEvent extends Event {
+  target: HTMLInputElement & EventTarget;
+}
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -19,6 +23,7 @@ export class SignupComponent implements OnInit {
   constructor(){
     this.insertClub();
   }
+  
   done = false;
   no_clubs_selected = false;
   clubs = [{
@@ -112,7 +117,13 @@ export class SignupComponent implements OnInit {
                 }).catch(error => console.error(error));
   }
 
-  registerUser(event) {
+  fileToUpload: File | null = null;
+
+  handleFileInput(event) {
+    this.fileToUpload = event.target.files.item(0);
+  }
+
+  registerUser(event: any) {
     
     const Fullname = (document.querySelector("#fullname") as HTMLInputElement).value;
     const Email = (document.querySelector("#email") as HTMLInputElement).value;
@@ -123,23 +134,35 @@ export class SignupComponent implements OnInit {
 
     console.log(Fullname);
     //event.preventDefault()
-    const target = event.target
-    const target2 = (event.target as HTMLInputElement);
+    //const target = (event as HTMLInputEvent)!.target
+    const target2 = (event as HTMLInputEvent)!
     console.log("In the register Function ------------------->"+event,"\n------->"+target2);
     
-    var userobj = {
-      fullname : Fullname,
-      email : Email,
-      gender : Gender,
-      bio : Bio,
-      password : Password,
-      phone : Phone,
-      clubs : this.selectedClubs
+    console.log(this.fileToUpload)
+
+    const reader = new FileReader();
+    if(this.fileToUpload!==null){
+      var blobfile = "";
+      reader.readAsDataURL(this.fileToUpload);
+      reader.onload = () => {
+        console.log(reader.result);
+
+      var userobj = {
+        fullname : Fullname,
+        email : Email,
+        gender : Gender,
+        bio : Bio,
+        password : Password,
+        phone : Phone,
+        clubs : this.selectedClubs,
+        profile : reader.result
+      }
+      this.handleRegistration(userobj);
+      console.log("This is User Object ----------> "+userobj);
+      };
+    }else{
+      console.log("Please provide the file!")
     }
-
-    console.log("This is User Object ----------> "+userobj);
-
-    this.handleRegistration(userobj);
 
 
   }
