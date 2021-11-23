@@ -1,4 +1,4 @@
-<body id="body_club">
+<body id="body_club" *ngIf="Current_Logged_User[0].Name.length>0">
     <div>
         <div id="sideNavContent">
             <nav class="menu" tabindex="0" id="mySidebar">
@@ -29,14 +29,13 @@
         <div style="height: 400px;" id="right-side">
             <div id="profile">
                 <main>
-                <div class="helper">
-                    WELCOME BACK {{Current_Logged_User[0].Name}}
+                <div class="helper" id="helper" style="color:rgb(58, 57, 57);">
+                    WELCOME BACK &nbsp;🤗 &nbsp;&nbsp;{{Current_Logged_User[0].Name.substr(0, Current_Logged_User[0].Name.indexOf(' '))}}<br><br><br>
                         <div>
-                            <p>
-                                Email : {{Current_Logged_User[0].Email}}<br>
-                                Contact : {{Current_Logged_User[0].Phone}}<br>
-                                
-                                Joined At : {{Current_Logged_User[0].JoinDate}}<br>
+                            <p id="parag" style="color:rgb(58, 57, 57);text-align: center;text-decoration: underline dotted rgb(168, 23, 23);">
+                                ✉   Email &nbsp;:&nbsp;  {{Current_Logged_User[0].Email}}<br><br>
+                                📞  Contact &nbsp;:&nbsp; {{Current_Logged_User[0].Phone}}<br><br>
+                                📅   Joined At &nbsp;:&nbsp; {{Current_Logged_User[0].JoinDate.substring(0,16)}}<br><br>
                             </p>        
                         </div>
                 </div>

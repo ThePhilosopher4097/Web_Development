@@ -1,3 +1,4 @@
+import { WHITE_ON_BLACK_CSS_CLASS } from '@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector';
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 
@@ -15,10 +16,14 @@ export class UserHomeComponent implements OnInit {
 
   Router_ID = "profile";
 
+
   constructor(private router: Router, private route:ActivatedRoute) { 
     const USER = this.router.getCurrentNavigation()?.extras?.state;
     this.Current_Logged_User = USER;
     console.log(this.Current_Logged_User);
+    if(this.Current_Logged_User[0].length<=0){
+      this.router.navigate(['/']);
+    }
     this.closed = false;
     this.myprofile = true;
   }
@@ -94,9 +99,13 @@ export class UserHomeComponent implements OnInit {
 
   darkMode(event) {
     (document.getElementById("body_club") as HTMLElement)!.classList.add("dark-mode");
+    (document.getElementById("parag") as HTMLElement)!.style.color = "#a19e9d";
+    (document.getElementById("helper") as HTMLElement)!.style.color = "#a19e9d";
   }
   lightMode(event) {
     (document.getElementById("body_club") as HTMLElement)!.classList.remove("dark-mode");
+    (document.getElementById("parag") as HTMLElement)!.style.color = "rgb(58, 57, 57)";
+    (document.getElementById("helper") as HTMLElement)!.style.color = "rgb(58, 57, 57)";
   }
 
 }

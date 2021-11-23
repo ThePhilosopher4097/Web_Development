@@ -11,8 +11,11 @@ body {
   }
   main .helper {
     background: rgba(0, 0, 0, 0.2);
-    color: #ffea92;
-    position: absolute;
+    /*color: #ffea92;*/
+    /*position: absolute;*/
+    position: relative;
+    width: max-content;
+    height: max-content;
     top: 40%;
     left: 55%;
     overflow: hidden;
@@ -278,11 +281,12 @@ body {
 
   .dark-mode {
     background: rgba( 0, 0, 0, 0.9 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 17.5px );
--webkit-backdrop-filter: blur( 17.5px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+    box-shadow: 0 8px 32px 0 rgba(24, 24, 29, 0.37);
+    backdrop-filter: blur( 17.5px );
+    -webkit-backdrop-filter: blur( 17.5px );
+    border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    opacity:0.9;
     color: white;
   }
