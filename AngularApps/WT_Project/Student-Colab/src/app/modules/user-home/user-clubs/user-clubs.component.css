@@ -1,12 +1,5 @@
 
-body {
-    font-family: "Libre Baskerville", serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 30px;
-    background-color: #0c0f15;
-    overflow-x:hidden;
-    color: #ababab; }
+
   
   ::-webkit-scrollbar {
       width: 10px;

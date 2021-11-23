@@ -13,6 +13,8 @@ export class UserHomeComponent implements OnInit {
   ToggleButton = (document.getElementById("toggleLogo") as HTMLElement);
   myprofile : boolean;
 
+  Router_ID = "profile";
+
   constructor(private router: Router, private route:ActivatedRoute) { 
     const USER = this.router.getCurrentNavigation()?.extras?.state;
     this.Current_Logged_User = USER;
@@ -35,12 +37,14 @@ export class UserHomeComponent implements OnInit {
     if(this.closed){
       (document.getElementById("mySidebar") as HTMLElement)!.style.width = "300px";
       (document.getElementById("toggleLogo") as HTMLElement)!.style.left = "0px";
+      (document.getElementById("clubs") as HTMLElement)!.style.left = "300px";
       (document.getElementById("sideNavContent") as HTMLElement)!.style.display = "visible";
       this.closed = false;
     }
     else{
       (document.getElementById("mySidebar") as HTMLElement)!.style.width = "0px";
       (document.getElementById("toggleLogo") as HTMLElement)!.style.left = "-300px";
+      (document.getElementById("clubs") as HTMLElement)!.style.left = "0px";
       (document.getElementById("sideNavContent") as HTMLElement)!.style.display = "hidden";
       this.closed = true;
     }
@@ -48,11 +52,43 @@ export class UserHomeComponent implements OnInit {
 
   showProfile(event){
     (document.getElementById("profile") as HTMLElement)!.hidden = false;
-    //(document.getElementById("mySidebar") as HTMLElement)!.style.width = "0px";
+    (document.getElementById("ustore") as HTMLElement)!.hidden = true;
+    (document.getElementById("clubs") as HTMLElement)!.hidden = true;
+    (document.getElementById("search") as HTMLElement)!.hidden = true;
+    (document.getElementById("todo") as HTMLElement)!.hidden = true;
   }
 
-  hideProfile(event){
+  showTodo(event){
+    
+    (document.getElementById("todo") as HTMLElement)!.hidden = false;
+    (document.getElementById("ustore") as HTMLElement)!.hidden = true;
+    (document.getElementById("clubs") as HTMLElement)!.hidden = true;
+    (document.getElementById("search") as HTMLElement)!.hidden = true;
     (document.getElementById("profile") as HTMLElement)!.hidden = true;
+  }
+  showClubs(event){
+    
+    (document.getElementById("clubs") as HTMLElement)!.hidden = false;
+    (document.getElementById("profile") as HTMLElement)!.hidden = true;
+    (document.getElementById("search") as HTMLElement)!.hidden = true;
+    (document.getElementById("ustore") as HTMLElement)!.hidden = true;
+    (document.getElementById("todo") as HTMLElement)!.hidden = true;
+  }
+  showUstore(event){
+   
+    (document.getElementById("ustore") as HTMLElement)!.hidden = false;
+    (document.getElementById("profile") as HTMLElement)!.hidden = true;
+    (document.getElementById("clubs") as HTMLElement)!.hidden = true;
+    (document.getElementById("todo") as HTMLElement)!.hidden = true;
+    (document.getElementById("search") as HTMLElement)!.hidden = true;
+  }
+  showSearch(event){
+    
+    (document.getElementById("search") as HTMLElement)!.hidden = false;
+    (document.getElementById("profile") as HTMLElement)!.hidden = true;
+    (document.getElementById("ustore") as HTMLElement)!.hidden = true;
+    (document.getElementById("clubs") as HTMLElement)!.hidden = true;
+    (document.getElementById("todo") as HTMLElement)!.hidden = true;
   }
 
 }

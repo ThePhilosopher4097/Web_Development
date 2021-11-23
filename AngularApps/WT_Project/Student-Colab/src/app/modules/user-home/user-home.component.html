@@ -1,47 +1,65 @@
 <body>
-
-    <div id="sideNavContent">
-        <nav class="menu" tabindex="0" id="mySidebar">
-            <div>
-                <header class="avatar">
-                        <img src="{{Current_Logged_User[0].Profilepic}}" id="profilepic" width="100px" height="100px;"/>
-                        <h2 id="username">{{Current_Logged_User[0].Name}}</h2>
-                </header>
-                <ul>
-                    <li routerLink="todo-list" (click)="hideProfile($event)" tabindex="0" class="icon-todo"><span>📝 &nbsp; MY To do List</span></li>
-                    <li routerLink="user-clubs" (click)="hideProfile($event)" tabindex="1" class="icon-clubs"><span>🏠 &nbsp; My Clubs</span></li>
-                    <li (click)="hideProfile($event)" tabindex="1" class="icon-ustore"><span>📂 &nbsp; UStore</span></li>
-                    <li routerLink="search" (click)="hideProfile($event)" tabindex="2" class="icon-others"><span>🙋‍♂️ &nbsp; Find Members</span></li>
-                    <li (click)="showProfile($event)" tabindex="3" class="icon-profile"><span>👨‍💼 &nbsp; My Profile</span></li>
-                    <li (click)="showProfile($event)" (click)="clearHistory()" tabindex="3" class="icon-logout"><span>😴 &nbsp; Logout</span></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-
-    <div id="Logo">
-        <img src="./assets/home/Logo.png" id="toggleLogo" (click)="openCloseNav($event)"/>
-    </div>
-
-<router-outlet></router-outlet>
-
-<div id="profile">
-    <main>
-    <div class="helper">
-        RESIZE THE WINDOW
-            <span>Breakpoints on 900px and 400px</span>
-            
-                <p>user-home works!</p>
+    <div>
+        <div id="sideNavContent">
+            <nav class="menu" tabindex="0" id="mySidebar">
                 <div>
-                    {{Current_Logged_User[0].Email}}
-                    {{Current_Logged_User[0].Phone}}
-                    {{Current_Logged_User[0].Name}}
-                    {{Current_Logged_User[0].Clubs}}
+                    <header class="avatar">
+                            <img src="{{Current_Logged_User[0].Profilepic}}" id="profilepic" width="100px" height="100px;"/>
+                            <h2 id="username">{{Current_Logged_User[0].Name}}</h2>
+                    </header>
+                    <ul>
+                        <li [routerLink]="[{outlets: {todo: 'todo-list'}}]" (click)="showTodo($event)" tabindex="0" class="icon-todo"><span>📝 &nbsp; MY To do List</span></li>
+                        <li [routerLink]="[{outlets: {clubs: 'user-clubs'}}]" (click)="showClubs($event)" tabindex="1" class="icon-clubs"><span>🏠 &nbsp; My Clubs</span></li>
+                        <li [routerLink]="[{outlets: {ustore: 'ustore'}}]" (click)="showUstore($event)" tabindex="1" class="icon-ustore"><span>📂 &nbsp; UStore</span></li>
+                        <li [routerLink]="[{outlets: {search: 'search'}}]" (click)="showSearch($event)" tabindex="2" class="icon-others"><span>🙋‍♂️ &nbsp; Find Members</span></li>
+                        <li (click)="showProfile($event)" tabindex="3" class="icon-profile"><span>👨‍💼 &nbsp; My Profile</span></li>
+                        <li (click)="clearHistory()" tabindex="3" class="icon-logout"><span>😴 &nbsp; Logout</span></li>
+                    </ul>
                 </div>
-            
+            </nav>
+
+            <div id="Logo">
+                <img src="./assets/home/Logo.png" id="toggleLogo" (click)="openCloseNav($event)"/>
+            </div>
+    
+        </div>
+
+        <div style="height: 600px;">
+            <div id="profile">
+                <main>
+                <div class="helper">
+                    RESIZE THE WINDOW
+                        <span>Breakpoints on 900px and 400px</span>
+                            <p>user-home works!</p>
+                            <div>
+                                {{Current_Logged_User[0].Email}}
+                                {{Current_Logged_User[0].Phone}}
+                                {{Current_Logged_User[0].Name}}
+                                {{Current_Logged_User[0].Clubs}}
+                            </div>
+                </div>
+                </main>
+            </div>
+            <div id="ustore">
+                <router-outlet name='ustore'></router-outlet>
+            </div>
+            <div id="search">
+                <router-outlet name='search'></router-outlet>
+            </div>
+            <div id="clubs" class="routerDiv">
+                <router-outlet name='clubs'></router-outlet>
+            </div>
+            <div id="todo">
+                <router-outlet name='todo'></router-outlet>
+            </div>
+    
+        </div>
+        
+
     </div>
-    </main>
-</div>
+
+    
+
 </body>
 
 

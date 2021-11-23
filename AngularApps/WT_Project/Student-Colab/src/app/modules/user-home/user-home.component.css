@@ -220,7 +220,7 @@ body {
   
   /*________________________________________________________________________________*/
   #toggleLogo{
-      width: 200px;
+      width: 240px;
       height:70px;
       margin-left: 300px;
       background-color: black;
@@ -258,4 +258,9 @@ body {
     font-size: 24px;
     transition: all 0.5s ease;
     background-color: #487c43;
+  }
+
+  .routerDiv{
+    position:relative; 
+    transition: all 1.3s ease;
   }

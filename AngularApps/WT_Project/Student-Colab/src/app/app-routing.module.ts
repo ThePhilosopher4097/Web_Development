@@ -7,6 +7,7 @@ import { UserHomeComponent } from './modules/user-home/user-home.component';
 import { AboutusComponent } from './modules/aboutus/aboutus.component';
 import { Page404Component } from './modules/page404/page404.component';
 import { UserClubsComponent } from './modules/user-home/user-clubs/user-clubs.component';
+import { UstoreComponent } from './modules/ustore/ustore.component';
 
 const routes: Routes = [
   {
@@ -38,8 +39,16 @@ const routes: Routes = [
     path : 'user-home', component: UserHomeComponent,
     children: [
       {
-        path: 'user-clubs',
-        component: UserClubsComponent
+        path: 'user-clubs', outlet: 'clubs', component: UserClubsComponent,
+      },
+      {
+        path: 'ustore', outlet: 'ustore', component: UstoreComponent,
+      },
+      {
+        path: 'search', outlet: 'search', component: UstoreComponent,
+      },
+      {
+        path: 'todo-list', outlet:'todo', component: UstoreComponent,
       }
     ]
   },
