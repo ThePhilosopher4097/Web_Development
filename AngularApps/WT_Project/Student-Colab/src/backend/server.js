@@ -23,11 +23,23 @@ app.use(bodyparser.json())
 app.use(cors())
 
 const Student = require("./schemas/Student");
+const Club = require("./schemas/Clubs");
+
+const Club_Data = [
+    {id : '1', club_name : 'Chess_Club', club_head_email : 'sameer.patil@mitaoe.ac.in'},
+    {id : '2', club_name : 'AI ML Club', club_head_email : 'sameer.patil@mitaoe.ac.in'},
+    {id : '3', club_name : 'Art Club', club_head_email : 'atharva.joshi@mitaoe.ac.in'},
+    {id : '4', club_name : 'Robotics Club', club_head_email : 'atharva.joshi@mitaoe.ac.in'},
+    {id : '5', club_name : 'Ethical Hacking Club', club_head_email : 'sameer.patil@mitaoe.ac.in'},
+    {id : '6', club_name : 'GDSC Club', club_head_email : 'aditya.birangal@mitaoe.ac.in'}
+]
+
 
 app.get('/', function(request,response){
     //response.sendFile('D:\\Programming\\HTML CSS\\NodeJS\\WD_3.html');
 });
 
+/*______________________________________________________________________________________________________*/
 //For Registration
 app.post('/submit-data', function(request,response){
 
@@ -67,12 +79,36 @@ app.post('/submit-data', function(request,response){
                         }});
                     }catch(err){response.json({msg:'User already exists !', iserror:true, isduplicate:true});}
             }
-        }).catch();
+            }).catch();
 
         
 
     }
 });
+
+/*_____________________________________________________________________________________________________________________*/
+
+app.get('/get-clubs', async function(request,response){
+    await Club.find({},(err, docs) => {
+        console.log(docs);
+        if(docs.length>0){
+            response.json({msg:'Club found !', club_list:docs, ispresent:true});
+            console.log("Duplicate Clubs ---> "+docs)
+        } else{
+                try{
+                    Club.insertMany(Club_Data, function(err, result){
+                    if (err) throw err;
+                    else{
+                        console.log("||..............Clubs Created............||");
+                        response.json({msg:'Clubs Added Successfully !', club_list:docs, ispresent:false});
+                    }});
+                }catch(err){response.json({msg:'Clubs already exists !', club_list:docs, ispresent:true});}
+        }
+        }).catch();
+})
+
+/*_____________________________________________________________________________________________________________________*/
+
 
 app.post('/update-data', function(request,response){
 
@@ -108,6 +144,7 @@ var server = app.listen(5000, function(){
     console.log("Node server is running at http://localhost:5000")
 });
 
+/*_________________________________________________________________________________________________________________*/
 //For Login
 app.post('/user-login', async function(request,response){
 

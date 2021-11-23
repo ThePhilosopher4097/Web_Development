@@ -16,7 +16,9 @@ import * as $ from "jquery";
 
 export class SignupComponent implements OnInit {
    
-  constructor(){}
+  constructor(){
+    this.insertClub();
+  }
   done = false;
   no_clubs_selected = false;
   clubs = [{
@@ -43,6 +45,17 @@ export class SignupComponent implements OnInit {
     this.selectedClubs = new Array<string>();
   }
 
+
+  async insertClub(){
+    await axios.get('http://localhost:5000/get-clubs')
+                .then(response => {
+                    console.log('POST: Clubs are added', response);
+                    console.log(response.data["iserror"])
+                    this.clubs = response.data["club_list"];
+                    this.clubs.push({club_name : 'No Clubs for now \uD83D\uDE05',id : 0});
+                }).catch(error => console.error(error));
+  }
+  
   callDone(){
     if(this.selectedClubs.length>0 || this.no_clubs_selected===true){
       this.done = true;
@@ -56,7 +69,7 @@ export class SignupComponent implements OnInit {
       if (e.target.checked){
         this.selectedClubs.push(club_name);
         if(id===0){
-          for(let i=1;i<4;i++){
+          for(let i=1;i<this.clubs.length;i++){
             (document.querySelector("[id='"+i+"']") as HTMLInputElement)!.disabled = true;
             (document.querySelector("[id='"+i+"']") as HTMLInputElement)!.checked = false;
           }
@@ -67,7 +80,7 @@ export class SignupComponent implements OnInit {
         this.selectedClubs = this.selectedClubs.filter(m=>m!=club_name);
         if(id===0){
           this.no_clubs_selected = false;
-          for(let i=1;i<4;i++){
+          for(let i=1;i<this.clubs.length;i++){
             (document.querySelector("[id='"+i+"']") as HTMLInputElement)!.disabled = false;
           }
         }
