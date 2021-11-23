@@ -42,8 +42,8 @@ export class UserHomeComponent implements OnInit {
       this.closed = false;
     }
     else{
-      (document.getElementById("mySidebar") as HTMLElement)!.style.width = "0px";
-      (document.getElementById("toggleLogo") as HTMLElement)!.style.left = "-300px";
+      (document.getElementById("mySidebar") as HTMLElement)!.style.width = "50px";
+      (document.getElementById("toggleLogo") as HTMLElement)!.style.left = "-250px";
       (document.getElementById("clubs") as HTMLElement)!.style.left = "0px";
       (document.getElementById("sideNavContent") as HTMLElement)!.style.display = "hidden";
       this.closed = true;
@@ -89,6 +89,14 @@ export class UserHomeComponent implements OnInit {
     (document.getElementById("ustore") as HTMLElement)!.hidden = true;
     (document.getElementById("clubs") as HTMLElement)!.hidden = true;
     (document.getElementById("todo") as HTMLElement)!.hidden = true;
+  }
+
+
+  darkMode(event) {
+    (document.getElementById("body_club") as HTMLElement)!.classList.add("dark-mode");
+  }
+  lightMode(event) {
+    (document.getElementById("body_club") as HTMLElement)!.classList.remove("dark-mode");
   }
 
 }

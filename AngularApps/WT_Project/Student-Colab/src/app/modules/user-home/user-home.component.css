@@ -2,8 +2,7 @@ body {
     background: #ffea92;
     margin: 0;
     font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
-    color: #fff;
-    
+    color: #fff;    
   }
   main {
     position: relative;
@@ -14,8 +13,8 @@ body {
     background: rgba(0, 0, 0, 0.2);
     color: #ffea92;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 40%;
+    left: 55%;
     overflow: hidden;
     transform: translate3d(-50%, -50%, 0);
     padding: 1.2em 2em;
@@ -263,4 +262,27 @@ body {
   .routerDiv{
     position:relative; 
     transition: all 1.3s ease;
+  }
+
+  #Logo{
+    width:100%;
+    background-color: rgb(108, 142, 253); 
+    padding-top: 3px;
+    padding-left: 5px;
+  }
+
+  #right-side{
+    position:relative; 
+    transition: all 1.3s ease;
+  }
+
+  .dark-mode {
+    background: rgba( 0, 0, 0, 0.9 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 17.5px );
+-webkit-backdrop-filter: blur( 17.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: white;
   }

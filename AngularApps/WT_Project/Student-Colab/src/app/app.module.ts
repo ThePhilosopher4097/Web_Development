@@ -18,6 +18,8 @@ import { UstoreComponent } from './modules/ustore/ustore.component';
 import { AboutusComponent } from './modules/aboutus/aboutus.component';
 import { Page404Component } from './modules/page404/page404.component';
 import { UserClubsComponent } from './modules/user-home/user-clubs/user-clubs.component';
+import { TodoListComponent } from './modules/user-home/todo-list/todo-list.component';
+import { ClubHomeComponent } from './modules/user-home/user-clubs/club-home/club-home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { UserClubsComponent } from './modules/user-home/user-clubs/user-clubs.co
     AboutusComponent,
     Page404Component,
     UserClubsComponent,
-    UserClubsComponent
+    UserClubsComponent,
+    TodoListComponent,
+    ClubHomeComponent
   ],
   imports: [
     BrowserModule,
