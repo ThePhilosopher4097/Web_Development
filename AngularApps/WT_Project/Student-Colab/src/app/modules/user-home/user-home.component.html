@@ -7,7 +7,7 @@
                             <img src="{{Current_Logged_User[0].Profilepic}}" id="profilepic" width="100px" height="100px;"/>
                             <h2 id="username">{{Current_Logged_User[0].Name}}</h2>
                     </header>
-                    <ul>
+                    <ul> 
                         <li [routerLink]="[{outlets: {todo: 'todo-list'}}]" (click)="showTodo($event)" tabindex="0" class="icon-todo"><span>📝 &nbsp; MY To do List</span></li>
                         <li [routerLink]="[{outlets: {clubs: 'user-clubs'}}]" (click)="showClubs($event)" tabindex="1" class="icon-clubs"><span>🏠 &nbsp; My Clubs</span></li>
                         <li [routerLink]="[{outlets: {ustore: 'ustore'}}]" (click)="showUstore($event)" tabindex="1" class="icon-ustore"><span>📂 &nbsp; UStore</span></li>

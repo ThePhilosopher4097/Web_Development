@@ -24,6 +24,7 @@
     "@syncfusion/ej2-angular-lists": "^19.3.53",
     "@syncfusion/ej2-base": "^19.3.53",
     "@syncfusion/ej2-lists": "^19.3.53",
+    "angular-autofocus-fix": "^0.1.2",
     "axios": "^0.24.0",
     "jquery": "^3.6.0",
     "mongodb": "^4.2.0",

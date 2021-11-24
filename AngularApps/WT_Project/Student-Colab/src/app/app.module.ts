@@ -18,8 +18,12 @@ import { UstoreComponent } from './modules/ustore/ustore.component';
 import { AboutusComponent } from './modules/aboutus/aboutus.component';
 import { Page404Component } from './modules/page404/page404.component';
 import { UserClubsComponent } from './modules/user-home/user-clubs/user-clubs.component';
-import { TodoListComponent } from './modules/user-home/todo-list/todo-list.component';
 import { ClubHomeComponent } from './modules/user-home/user-clubs/club-home/club-home.component';
+import { ClubMainComponent } from './modules/user-home/user-clubs/club-home/club-main/club-main.component';
+import { ClubChatsComponent } from './modules/user-home/user-clubs/club-home/club-chats/club-chats.component';
+import { ClubEventsComponent } from './modules/user-home/user-clubs/club-home/club-events/club-events.component';
+import { ClubTeamComponent } from './modules/user-home/user-clubs/club-home/club-team/club-team.component';
+import { ClubMeetComponent } from './modules/user-home/user-clubs/club-home/club-meet/club-meet.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +37,12 @@ import { ClubHomeComponent } from './modules/user-home/user-clubs/club-home/club
     Page404Component,
     UserClubsComponent,
     UserClubsComponent,
-    TodoListComponent,
-    ClubHomeComponent
+    ClubHomeComponent,
+    ClubMainComponent,
+    ClubChatsComponent,
+    ClubEventsComponent,
+    ClubTeamComponent,
+    ClubMeetComponent,
   ],
   imports: [
     BrowserModule,

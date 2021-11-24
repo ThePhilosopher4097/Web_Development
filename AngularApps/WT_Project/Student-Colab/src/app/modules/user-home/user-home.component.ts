@@ -10,7 +10,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 export class UserHomeComponent implements OnInit {
 
   closed : boolean;
-  Current_Logged_User : any;
+  public Current_Logged_User : any;
   ToggleButton = (document.getElementById("toggleLogo") as HTMLElement);
   myprofile : boolean;
 
@@ -70,6 +70,7 @@ export class UserHomeComponent implements OnInit {
     (document.getElementById("clubs") as HTMLElement)!.hidden = true;
     (document.getElementById("search") as HTMLElement)!.hidden = true;
     (document.getElementById("profile") as HTMLElement)!.hidden = true;
+    window.location.href = 'http://localhost:4300'; //go to To-Do-App
   }
   showClubs(event){
     
@@ -101,11 +102,13 @@ export class UserHomeComponent implements OnInit {
     (document.getElementById("body_club") as HTMLElement)!.classList.add("dark-mode");
     (document.getElementById("parag") as HTMLElement)!.style.color = "#a19e9d";
     (document.getElementById("helper") as HTMLElement)!.style.color = "#a19e9d";
+    (document.getElementById("mySidebar") as HTMLElement)!.style.backgroundColor = "#151515";
   }
   lightMode(event) {
     (document.getElementById("body_club") as HTMLElement)!.classList.remove("dark-mode");
     (document.getElementById("parag") as HTMLElement)!.style.color = "rgb(58, 57, 57)";
     (document.getElementById("helper") as HTMLElement)!.style.color = "rgb(58, 57, 57)";
+    (document.getElementById("mySidebar") as HTMLElement)!.style.backgroundColor = "#5bc995";
   }
 
 }

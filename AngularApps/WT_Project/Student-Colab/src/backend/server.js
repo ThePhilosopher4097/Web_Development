@@ -52,8 +52,8 @@ app.post('/submit-data', function(request,response){
     var clubs = request.body.clubs
     var profile = request.body.profile
     var date = String(new Date());
-    console.log(date);
-    console.log(request.body);
+    //console.log(date);
+    //console.log(request.body);
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(String(email).toLowerCase())){
         //email is validated
@@ -67,10 +67,10 @@ app.post('/submit-data', function(request,response){
         ]
         
             Student.find({Email:email},(err, docs) => {
-            console.log(docs);
+            //console.log(docs);
             if(docs.length>0){
                 response.json({msg:'User already exists !', iserror:true, isduplicate:true});
-                console.log("Duplicae ---> "+docs)
+                //console.log("Duplicae ---> "+docs)
             } else{
                     try{
                         Student.insertMany(Records, function(err, result){
@@ -96,7 +96,7 @@ app.get('/get-clubs', async function(request,response){
         console.log(docs);
         if(docs.length>0){
             response.json({msg:'Club found !', club_list:docs, ispresent:true});
-            console.log("Duplicate Clubs ---> "+docs)
+            //console.log("Duplicate Clubs ---> "+docs)
         } else{
                 try{
                     Club.insertMany(Club_Data, function(err, result){

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-clubs',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserClubsComponent implements OnInit {
 
-  constructor() { }
+  showClubs = true;
+
+  constructor() { 
+    this.showClubs = true;
+  }
 
   ngOnInit(): void {
+    this.showClubs = true;
+  }
+
+  hideClubs(event){
+    if (this.showClubs)
+      this.showClubs = false;
+    else
+      this.showClubs = true;
   }
 
 }
