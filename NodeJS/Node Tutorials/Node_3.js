@@ -5,6 +5,11 @@ const server = http.createServer(function (request, response) {
         response.write('Welcome to BMC !')
         response.end()
     }
+    if (request.url === '/bmc/developers') {
+        console.log("Inside BMC developers")
+        response.write(JSON.stringify([1,2,3]))
+        response.end()
+    }
 })
 
 server.on('connection', (socket) => {
